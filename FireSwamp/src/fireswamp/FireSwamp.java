@@ -8,7 +8,7 @@ package fireswamp;
 /** This is our main file
  *
  * @author jared
- */
+ */This is Justins contribution
 public class FireSwamp
 
     /**
