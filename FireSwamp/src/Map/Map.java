@@ -11,5 +11,8 @@ import java.io.Serializable;
  * @author blvd
  */
 public class Map implements Serializable{
+    private String columnCount;
+    private int rowCount;
+    
     
 }
