@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package fireswamp;
+package fireswamp;  
 
-/** HEEELLLLOOOO
+/** This is our main file
  *
- * @author jaredJaredJared
+ * @author jared
  */
-public class FireSwamp {testing]
+public class FireSwamp
 
     /**
      * @param args the command line arguments
