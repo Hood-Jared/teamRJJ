@@ -5,10 +5,11 @@
  */
 package Map;
 
+import java.io.Serializable;
 /**
  *
  * @author blvd
  */
-public class Map {
+public class Map implements Serializable{
     
 }

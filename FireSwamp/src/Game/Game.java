@@ -5,10 +5,11 @@
  */
 package Game;
 
+import java.io.Serializable;
 /**
  *
  * @author blvd
  */
-public class Game {
+public class Game implements Serializable{
     
 }

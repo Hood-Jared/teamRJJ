@@ -5,10 +5,11 @@
  */
 package Character;
 
+import java.io.Serializable;
 /**
  *
  * @author blvd
  */
-public class Items {
+public class Items implements Serializable{
     
 }
