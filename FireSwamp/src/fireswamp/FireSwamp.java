@@ -8,8 +8,8 @@ package fireswamp;
 /** This is our main file
  *
  * @author jared
- */This is Justins contribution
-public class FireSwamp
+ */
+public class FireSwamp {
 
     /**
      * @param args the command line arguments
