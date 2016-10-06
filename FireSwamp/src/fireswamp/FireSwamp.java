@@ -13,6 +13,7 @@ public class FireSwamp
 
     /**
      * @param args the command line arguments
+     * This is a test!
      */
     public static void main(String[] args) {
         // TODO code application logic here
