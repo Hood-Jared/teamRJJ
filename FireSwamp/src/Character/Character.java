@@ -13,4 +13,9 @@ import java.io.Serializable;
  */
 public class Character implements Serializable{
     
+    private String name;
+    private String gender;
+    private String description;
+    private String location;
+    
 }
