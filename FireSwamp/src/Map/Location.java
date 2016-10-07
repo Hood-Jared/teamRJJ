@@ -14,5 +14,5 @@ public class Location implements Serializable{
     
     private String playerLocation;
     private String visited;
-    
+
 }
