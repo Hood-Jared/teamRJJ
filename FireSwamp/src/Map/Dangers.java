@@ -12,4 +12,7 @@ import java.io.Serializable;
  */
 public class Dangers implements Serializable{
     
+    private String location;
+    private String typeOfDanger;
+    
 }

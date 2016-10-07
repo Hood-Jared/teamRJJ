@@ -12,4 +12,8 @@ import java.io.Serializable;
  */
 public class Game implements Serializable{
     
+    private String enterSwampYorN;
+    private String numberOfTurns;
+    private String help;
+    
 }
