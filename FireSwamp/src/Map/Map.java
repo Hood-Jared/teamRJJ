@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class Map implements Serializable{
     private String columnCount;
     private int rowCount;
+    private String playerMap;
     
     
 }
