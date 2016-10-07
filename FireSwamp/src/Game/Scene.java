@@ -12,4 +12,8 @@ import java.io.Serializable;
  */
 public class Scene implements Serializable{
     
+    private double travelTime;
+    private String description; 
+    private String displaySymbol; 
+    
 }

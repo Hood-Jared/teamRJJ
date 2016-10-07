@@ -12,4 +12,6 @@ import java.io.Serializable;
  */
 public class Items implements Serializable{
     
+    private String itemType; 
+    
 }
