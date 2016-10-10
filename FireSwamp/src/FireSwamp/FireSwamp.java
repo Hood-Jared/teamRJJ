@@ -6,6 +6,8 @@
  */
 package FireSwamp;
 
+import Character.Character;
+
 /**
  *
  * @author blvd
@@ -16,7 +18,15 @@ public class FireSwamp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Character  = new name();
+        Character character = new Character();
+        
+        character.setName("Justin Fryar");
+        character.setGender("M");
+        character.setDescription("I live in Colorado Springs");
+        character.setLocation("A3");
+        
+        String characterInfo = character.toString();
+        System.out.println(characterInfo);
     }
     
 }
