@@ -25,6 +25,7 @@ public class FireSwamp {
         
         String characterInfo = character.toString();
         System.out.println(characterInfo);
+        
     }
     
 }
