@@ -5,9 +5,7 @@
  * and open the template in the editor.
  */
 package FireSwamp;
-
 import Character.Character;
-
 /**
  *
  * @author blvd
