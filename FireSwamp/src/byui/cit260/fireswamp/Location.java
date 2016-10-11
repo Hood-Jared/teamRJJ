@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Map;
+package byui.cit260.fireswamp;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,44 +11,44 @@ import java.util.Objects;
  *
  * @author blvd
  */
-public class Dangers implements Serializable{
+public class Location implements Serializable{
     
-    private String location;
-    private String typeOfDanger;
+    private String playerLocation;
+    private String visited;
 
     // default constructor function
-    public Dangers() {
+    public Location() {
     }
-    
+
     // getter and setter functions
-    public String getLocation() {
-        return location;
+    public String getPlayerLocation() {
+        return playerLocation;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setPlayerLocation(String playerLocation) {
+        this.playerLocation = playerLocation;
     }
 
-    public String getTypeOfDanger() {
-        return typeOfDanger;
+    public String getVisited() {
+        return visited;
     }
 
-    public void setTypeOfDanger(String typeOfDanger) {
-        this.typeOfDanger = typeOfDanger;
+    public void setVisited(String visited) {
+        this.visited = visited;
     }
 
     // hashCode(), toString(), equals() functions
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.location);
-        hash = 97 * hash + Objects.hashCode(this.typeOfDanger);
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.playerLocation);
+        hash = 53 * hash + Objects.hashCode(this.visited);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Dangers{" + "location=" + location + ", typeOfDanger=" + typeOfDanger + '}';
+        return "Location{" + "playerLocation=" + playerLocation + ", visited=" + visited + '}';
     }
 
     @Override
@@ -62,15 +62,14 @@ public class Dangers implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Dangers other = (Dangers) obj;
-        if (!Objects.equals(this.location, other.location)) {
+        final Location other = (Location) obj;
+        if (!Objects.equals(this.playerLocation, other.playerLocation)) {
             return false;
         }
-        if (!Objects.equals(this.typeOfDanger, other.typeOfDanger)) {
+        if (!Objects.equals(this.visited, other.visited)) {
             return false;
         }
         return true;
     }
-    
     
 }

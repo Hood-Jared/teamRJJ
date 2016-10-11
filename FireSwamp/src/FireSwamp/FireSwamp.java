@@ -5,13 +5,13 @@
  * and open the template in the editor.
  */
 package FireSwamp;
-import Character.Character;
-import Character.Items;
-import Game.Game;
-import Game.Scene;
-import Map.Dangers;
-import Map.Location;
-import Map.Map;
+import byui.cit260.fireswamp.Character;
+import byui.cit260.fireswamp.Items;
+import byui.cit260.fireswamp.Game;
+import byui.cit260.fireswamp.Scene;
+import byui.cit260.fireswamp.Dangers;
+import byui.cit260.fireswamp.Location;
+import byui.cit260.fireswamp.Map;
 /**
  *
  * @author blvd
