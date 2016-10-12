@@ -14,7 +14,7 @@ import java.util.Objects;
 public class Location implements Serializable{
     
     private String playerLocation;
-    private String visited;
+    private boolean visited;
 
     // default constructor function
     public Location() {
@@ -29,20 +29,21 @@ public class Location implements Serializable{
         this.playerLocation = playerLocation;
     }
 
-    public String getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
-    public void setVisited(String visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
 
     // hashCode(), toString(), equals() functions
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + Objects.hashCode(this.playerLocation);
-        hash = 53 * hash + Objects.hashCode(this.visited);
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.playerLocation);
+        hash = 47 * hash + (this.visited ? 1 : 0);
         return hash;
     }
 
@@ -50,7 +51,7 @@ public class Location implements Serializable{
     public String toString() {
         return "Location{" + "playerLocation=" + playerLocation + ", visited=" + visited + '}';
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -63,13 +64,14 @@ public class Location implements Serializable{
             return false;
         }
         final Location other = (Location) obj;
-        if (!Objects.equals(this.playerLocation, other.playerLocation)) {
+        if (this.visited != other.visited) {
             return false;
         }
-        if (!Objects.equals(this.visited, other.visited)) {
+        if (!Objects.equals(this.playerLocation, other.playerLocation)) {
             return false;
         }
         return true;
     }
+    
     
 }

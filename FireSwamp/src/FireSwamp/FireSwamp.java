@@ -45,9 +45,9 @@ public class FireSwamp {
         //Game.java values test
         Game game = new Game();
         
-        game.setEnterSwampYorN("Y");
+        game.setEnterSwampYorN(true);
         game.setHelp("H");
-        game.setNumberOfTurns("30");
+        game.setNumberOfTurns(30);
         
         String gameInfo = game.toString();
         System.out.println(gameInfo);
@@ -75,7 +75,7 @@ public class FireSwamp {
         Location location = new Location();
         
         location.setPlayerLocation("D9");
-        location.setVisited("V");
+        location.setVisited(true);
         
         String locationInfo = location.toString();
         System.out.println(locationInfo);

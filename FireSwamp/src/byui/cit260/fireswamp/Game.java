@@ -13,8 +13,8 @@ import java.util.Objects;
  */
 public class Game implements Serializable{
     
-    private String enterSwampYorN;
-    private String numberOfTurns;
+    private boolean enterSwampYorN;
+    private int numberOfTurns;
     private String help;
 
     // default constructor function
@@ -22,19 +22,19 @@ public class Game implements Serializable{
     }
 
     // getter and setter function
-    public String getEnterSwampYorN() {
+    public boolean isEnterSwampYorN() {
         return enterSwampYorN;
     }
 
-    public void setEnterSwampYorN(String enterSwampYorN) {
+    public void setEnterSwampYorN(boolean enterSwampYorN) {
         this.enterSwampYorN = enterSwampYorN;
     }
 
-    public String getNumberOfTurns() {
+    public int getNumberOfTurns() {
         return numberOfTurns;
     }
 
-    public void setNumberOfTurns(String numberOfTurns) {
+    public void setNumberOfTurns(int numberOfTurns) {
         this.numberOfTurns = numberOfTurns;
     }
 
@@ -49,10 +49,10 @@ public class Game implements Serializable{
     // hashCode(), toString(), equals() functions
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.enterSwampYorN);
-        hash = 53 * hash + Objects.hashCode(this.numberOfTurns);
-        hash = 53 * hash + Objects.hashCode(this.help);
+        int hash = 5;
+        hash = 29 * hash + (this.enterSwampYorN ? 1 : 0);
+        hash = 29 * hash + this.numberOfTurns;
+        hash = 29 * hash + Objects.hashCode(this.help);
         return hash;
     }
 
@@ -60,7 +60,7 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "enterSwampYorN=" + enterSwampYorN + ", numberOfTurns=" + numberOfTurns + ", help=" + help + '}';
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -73,10 +73,10 @@ public class Game implements Serializable{
             return false;
         }
         final Game other = (Game) obj;
-        if (!Objects.equals(this.enterSwampYorN, other.enterSwampYorN)) {
+        if (this.enterSwampYorN != other.enterSwampYorN) {
             return false;
         }
-        if (!Objects.equals(this.numberOfTurns, other.numberOfTurns)) {
+        if (this.numberOfTurns != other.numberOfTurns) {
             return false;
         }
         if (!Objects.equals(this.help, other.help)) {
@@ -84,8 +84,6 @@ public class Game implements Serializable{
         }
         return true;
     }
-    
-    
     
     
 }
