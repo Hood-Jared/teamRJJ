@@ -15,9 +15,28 @@ public class Location implements Serializable{
     
     private String playerLocation;
     private boolean visited;
-
+    private int row;
+    private int column;
+    
+    
     // default constructor function
     public Location() {
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
     }
 
     // getter and setter functions
