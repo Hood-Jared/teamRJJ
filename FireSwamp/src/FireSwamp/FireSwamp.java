@@ -12,6 +12,7 @@ import byui.cit260.fireswamp.Scene;
 import byui.cit260.fireswamp.Dangers;
 import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Map;
+import byui.cit260.fireswamp.view.WelcomeView;
 /**
  *
  * @author blvd
@@ -22,6 +23,9 @@ public class FireSwamp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        WelcomeView swv = new WelcomeView();
+        swv.displayStartProgramView();
         
         //Character.java values test
         Character character = new Character();
