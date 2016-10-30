@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author ryahh
+ * @author ryahh & jared
  */
 public class WelcomeView {
     
@@ -62,7 +62,7 @@ public class WelcomeView {
                 name = input;
                 
             } else {
-                System.out.println("Inout is invalid - name must be at least 2 characters");
+                System.out.println("Input is invalid - name must be at least 2 characters");
             }         
         }
         return name;
