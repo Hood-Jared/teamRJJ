@@ -13,14 +13,15 @@ import java.util.Objects;
  */
 public class Items implements Serializable{
     
-    private String itemType; 
-
-    
-    // default constructor function
-    public Items() {    
+    private String itemType;
+    private String rope;
+    private String bucketOfWater;
+ 
+    //default constructor function
+    public Items() {
     }
 
-    // getter and setter functions
+    //getter and setter function
     public String getItemType() {
         return itemType;
     }
@@ -28,18 +29,36 @@ public class Items implements Serializable{
     public void setItemType(String itemType) {
         this.itemType = itemType;
     }
-    
+
+    public String getRope() {
+        return rope;
+    }
+
+    public void setRope(String rope) {
+        this.rope = rope;
+    }
+
+    public String getBucketOfWater() {
+        return bucketOfWater;
+    }
+
+    public void setBucketOfWater(String bucketOfWater) {
+        this.bucketOfWater = bucketOfWater;
+    }
+
     // hashCode(), toString(), equals() functions
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.itemType);
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.itemType);
+        hash = 53 * hash + Objects.hashCode(this.rope);
+        hash = 53 * hash + Objects.hashCode(this.bucketOfWater);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Items{" + "itemType=" + itemType + '}';
+        return "Items{" + "itemType=" + itemType + ", rope=" + rope + ", bucketOfWater=" + bucketOfWater + '}';
     }
 
     @Override
@@ -57,7 +76,14 @@ public class Items implements Serializable{
         if (!Objects.equals(this.itemType, other.itemType)) {
             return false;
         }
+        if (!Objects.equals(this.rope, other.rope)) {
+            return false;
+        }
+        if (!Objects.equals(this.bucketOfWater, other.bucketOfWater)) {
+            return false;
+        }
         return true;
     }
-    
+
+ 
 }
