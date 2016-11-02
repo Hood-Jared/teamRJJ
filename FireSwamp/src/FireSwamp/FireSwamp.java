@@ -13,6 +13,8 @@ import byui.cit260.fireswamp.Dangers;
 import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.view.WelcomeView;
+import byui.cit260.fireswamp.view.MainMenuView;
+import byui.cit260.fireswamp.view.HelpMenuView;
 /**
  *
  * @author blvd
