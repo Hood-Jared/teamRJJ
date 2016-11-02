@@ -18,5 +18,13 @@ public class DangerController {
         double answer = diameter * Math.PI / 2;
         return answer;
     }
+    
+    public double CalcFireSpouts(double triangleArea){
+        if (triangleArea <= 0 || triangleArea > 20) {
+            return -1;
+        }
+        double answer = 10 * 20 / 2;
+        return answer;
+    }
 
 }
