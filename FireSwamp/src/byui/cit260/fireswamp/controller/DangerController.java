@@ -19,8 +19,9 @@ public class DangerController {
         return answer;
     }
     
+    //Calculate the area of a triangle A=h*b/2
     public double CalcFireSpouts(double triangleArea){
-        if (triangleArea <= 0 || triangleArea > 20) {
+        if (triangleArea <= 0) {
             return -1;
         }
         double answer = 10 * 20 / 2;

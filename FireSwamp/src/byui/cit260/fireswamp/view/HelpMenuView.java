@@ -5,10 +5,83 @@
  */
 package byui.cit260.fireswamp.view;
 
+import java.util.Scanner;
+
 /**
  *
  * @author ryahh
  */
 public class HelpMenuView {
+
+    private final String menu = 
+            "\n****Help Menu****"
+            + "\n - Inventory"
+            + "\n - Clues"
+            + "\n - Dangers"
+            + "\n - Movement"
+            + "\n - Back to Main Menu";
+    
+
+    public String getInput() {
+        Scanner in = new Scanner(System.in);
+        String input = " ";
+
+        boolean validInput = false;
+
+        while (!validInput) {
+            input = in.nextLine();
+            input = input.trim();
+            input = input.toUpperCase();
+
+            if (input.length() < 1) {
+                System.out.println("\nInvalid value: You must enter a character.");
+            } else {
+                validInput = true;
+            }
+        }
+        return input;
+    }
+    
+    
+    public boolean doAction(String selection) {
+
+        char charSel = selection.charAt(0);
+
+        switch (charSel) {
+            case 'i':
+                helpInventory();
+                break;
+            case 'c':
+                helpClues();
+                break;
+            case 'd':
+                helpDangers();
+                break;
+            case 'm':
+                helpMovement();
+            case 'b':
+                return true;
+            default:
+                System.out.println("Invalid Input - Please try again.");
+                break;
+        }
+        return false;
+    }
+    
+    private void helpInventory() {
+        System.out.println("Inventory Help");
+    }
+    
+    private void helpClues() {
+        System.out.println("Clues Help");
+    }
+    
+    private void helpDangers() {
+        System.out.println("Dangers Help");
+    }
+    
+    private void helpMovement() {
+        System.out.println("Movement Help");
+    }
     
 }
