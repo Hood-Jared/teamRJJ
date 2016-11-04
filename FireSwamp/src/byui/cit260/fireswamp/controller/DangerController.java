@@ -27,5 +27,20 @@ public class DangerController {
         double answer = 10 * 20 / 2;
         return answer;
     }
+    
+    /*
+    * Rodent Danger Controller
+    * System will show a pattern of numbers, 
+    * player must return the next number in the series.
+    */
+              
+        public double calcRous(double nextNumber,double lastNumber){
+        if (nextNumber <= 0) {
+            return -1;
+        } 
+        double answerRous;
+        answerRous = (lastNumber * 2);
+        return answerRous;
+    }
 
 }
