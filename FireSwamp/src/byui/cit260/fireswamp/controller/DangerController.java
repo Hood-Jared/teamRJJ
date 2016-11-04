@@ -7,7 +7,7 @@ package byui.cit260.fireswamp.controller;
 
 /**
  *
- * @author ryahh
+ * @author ryahh, jared, blvd
  */
 public class DangerController {
 
@@ -35,12 +35,12 @@ public class DangerController {
     */
               
         public double calcRous(double nextNumber,double lastNumber){
-        if (nextNumber <= 0) {
-            return -1;
-        } 
-        double answerRous;
-        answerRous = (lastNumber * 2);
+        double answerRous = lastNumber * 2; 
+        if (nextNumber != answerRous) {
+        return -1;
+    } 
+        
         return answerRous;
-    }
+  }
 
 }
