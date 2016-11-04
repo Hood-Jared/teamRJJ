@@ -69,9 +69,9 @@ public class WelcomeView {
     }   
     
     private void displayWelcome(String playerName){
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
+        System.out.println("============================");
+        System.out.println("Welcome " + playerName + ".");
+        System.out.println("Enjoy the game!");
+        System.out.println("============================");
     }
 }
