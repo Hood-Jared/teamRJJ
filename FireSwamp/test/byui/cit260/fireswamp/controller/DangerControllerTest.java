@@ -74,7 +74,19 @@ public class DangerControllerTest {
         double result = instance.calcRous(nextNumber, lastNumber);
         assertEquals(expResult, result, 0.0);
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
+        
+        nextNumber = 4;
+        lastNumber = 2;
+        expResult = 4;
+        result = instance.calcRous(nextNumber, lastNumber);
+        assertEquals(expResult, result, 0.0);
+        
+        nextNumber = 3;
+        lastNumber = 2;
+        expResult = -1;
+        result = instance.calcRous(nextNumber, lastNumber);
+        assertEquals(expResult, result, 0.0);
     }
 
     /**

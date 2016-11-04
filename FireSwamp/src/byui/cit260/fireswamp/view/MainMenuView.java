@@ -5,6 +5,7 @@
  */
 package byui.cit260.fireswamp.view;
 
+import byui.cit260.fireswamp.controller.DangerController;
 import java.util.Scanner;
 
 /**
@@ -90,6 +91,7 @@ public class MainMenuView {
 
     private void helpMenu() {
         System.out.println("HELP MENU CALLED");
-      
+        HelpMenuView display = new HelpMenuView();
+        display.display();
     }
 }

@@ -15,11 +15,11 @@ public class HelpMenuView {
 
     private final String menu = 
             "\n****Help Menu****"
-            + "\n - Inventory"
-            + "\n - Clues"
-            + "\n - Dangers"
-            + "\n - Movement"
-            + "\n - Back to Main Menu";
+            + "\n I - Inventory"
+            + "\n C - Clues"
+            + "\n D - Dangers"
+            + "\n M - Movement"
+            + "\n B - Back to Main Menu";
     
     public void display() {
 
@@ -81,7 +81,18 @@ public class HelpMenuView {
     }
     
     private void helpInventory() {
-        System.out.println("Inventory Help");
+        System.out.println(
+                "\nWelcome to the Inventory Help Screen"
+              + "\n"
+              + "\nYour inventory is necessary to help you survive"
+              + "\nthe dangers of the Fire Swamp! Should you run"
+              + "\ninto Fire Spouts or ROUS's or Lightning Sand"
+              + "\nyou will need either to have a rope, bucket of"
+              + "\nwater, or to correctly perform a calculation"
+              + "\nin order to survive. If you are out of any of"
+              + "\nthese items or you perform the calculation"
+              + "\nincorrectly you will die and the game will be"
+              + "\nover. Good luck!");
     }
     
     private void helpClues() {
