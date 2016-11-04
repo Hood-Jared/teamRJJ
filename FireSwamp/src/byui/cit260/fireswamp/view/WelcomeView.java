@@ -43,6 +43,9 @@ public class WelcomeView {
         String playerName = getPlayerName();
         
         displayWelcome(playerName);
+        
+        MainMenuView mmv = new MainMenuView();
+        mmv.display();
     }
     
     private String getPlayerName(){

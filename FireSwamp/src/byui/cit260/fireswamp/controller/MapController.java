@@ -21,4 +21,11 @@ public class MapController {
         
     }
     
+    public boolean checkMoveEast(Location location){
+            if (location.getRow()== 0){
+            
+            }
+            return true;
+    }
+    
 }

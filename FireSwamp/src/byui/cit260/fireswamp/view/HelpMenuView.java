@@ -21,6 +21,18 @@ public class HelpMenuView {
             + "\n - Movement"
             + "\n - Back to Main Menu";
     
+    public void display() {
+
+        boolean done = false;
+        do {
+            System.out.println("\n" + this.menu);
+
+            String value = this.getInput();
+
+            done = this.doAction(value);
+        } while (!done);
+
+    }
 
     public String getInput() {
         Scanner in = new Scanner(System.in);
@@ -48,18 +60,18 @@ public class HelpMenuView {
         char charSel = selection.charAt(0);
 
         switch (charSel) {
-            case 'i':
+            case 'I':
                 helpInventory();
                 break;
-            case 'c':
+            case 'C':
                 helpClues();
                 break;
-            case 'd':
+            case 'D':
                 helpDangers();
                 break;
-            case 'm':
+            case 'M':
                 helpMovement();
-            case 'b':
+            case 'B':
                 return true;
             default:
                 System.out.println("Invalid Input - Please try again.");
@@ -82,6 +94,11 @@ public class HelpMenuView {
     
     private void helpMovement() {
         System.out.println("Movement Help");
+    }
+
+    void displayHelpMenuView() {
+        HelpMenuView hmv = new HelpMenuView();
+        hmv.displayHelpMenuView();
     }
     
 }
