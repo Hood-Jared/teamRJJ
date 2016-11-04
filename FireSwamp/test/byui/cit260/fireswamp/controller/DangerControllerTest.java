@@ -59,23 +59,7 @@ public class DangerControllerTest {
         result = instance.calcLightingSand(diameter);
         assertEquals(expResult, result, 0.1);
     }
-
-    /**
-     * Test of CalcFireSpouts method, of class DangerController.
-     */
-    @Test
-    public void testCalcFireSpouts() {
-        System.out.println("CalcFireSpouts");
-        double triangleArea = 0.0;
-        DangerController instance = new DangerController();
-        double expResult = 0.0;
-        double result = instance.CalcFireSpouts(triangleArea);
-        assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
-
-    
+  
 
     /**
      * Test of calcRous method, of class DangerController.
@@ -92,5 +76,39 @@ public class DangerControllerTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of calcFireSpouts method, of class DangerController.
+     */
+    @Test
+    public void testCalcFireSpouts() {
+        System.out.println("calcFireSpouts");
+        double height = 20;
+        double base = 5;
+        DangerController instance = new DangerController();
+        double expResult = 50;
+        double result = instance.calcFireSpouts(height, base);
+        assertEquals(expResult, result, 0.0);
+        
+        height = 30;
+        base = 10;
+        expResult = 150;
+        result = instance.calcFireSpouts(height, base);
+        assertEquals(expResult, result, 0.0);
+        
+        height = 10;
+        base = 3;
+        expResult = 15;
+        result = instance.calcFireSpouts(height, base);
+        assertEquals(expResult, result, 0.0);
+        
+        height = 0;
+        base = 5;
+        expResult = -1;
+        result = instance.calcFireSpouts(height, base);
+        assertEquals(expResult, result, 0.0);
+    }
     
 }
+
+

@@ -7,7 +7,7 @@ package byui.cit260.fireswamp.controller;
 
 /**
  *
- * @author ryahh, jared, blvd
+ * @author ryahh, jared, justin
  */
 public class DangerController {
 
@@ -20,12 +20,12 @@ public class DangerController {
     }
     
     //Calculate the area of a triangle A=h*b/2
-    public double CalcFireSpouts(double triangleArea){
-        if (triangleArea <= 0) {
+    public double calcFireSpouts(double height, double base){
+        if (height <= 0 || base <= 0) {
             return -1;
         }
-        double answer = 10 * 20 / 2;
-        return answer;
+        double triangleArea = height * base / 2;
+        return triangleArea;
     }
     
     /*
