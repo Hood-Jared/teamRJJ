@@ -53,6 +53,11 @@ public class DangerControllerTest {
         expResult = 3.14;
         result = instance.calcLightingSand(diameter);
         assertEquals(expResult, result, 0.1);
+        
+        diameter = 8;
+        expResult = 12.5;
+        result = instance.calcLightingSand(diameter);
+        assertEquals(expResult, result, 0.1);
     }
 
     /**
