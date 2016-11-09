@@ -46,17 +46,17 @@ public class DangerControllerTest {
         double diameter = 0.0;
         DangerController instance = new DangerController();
         double expResult = -1;
-        double result = instance.calcLightingSand(diameter);
+        double result = instance.calcLightningSand(diameter);
         assertEquals(expResult, result, 0.1);
         
         diameter = 2;
         expResult = 3.14;
-        result = instance.calcLightingSand(diameter);
+        result = instance.calcLightningSand(diameter);
         assertEquals(expResult, result, 0.1);
         
         diameter = 8;
         expResult = 12.5;
-        result = instance.calcLightingSand(diameter);
+        result = instance.calcLightningSand(diameter);
         assertEquals(expResult, result, 0.1);
     }
   

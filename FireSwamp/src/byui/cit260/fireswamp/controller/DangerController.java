@@ -11,12 +11,13 @@ package byui.cit260.fireswamp.controller;
  */
 public class DangerController {
 
-    public double calcLightingSand(double diameter) {
+    //Calculate the circumference of a circle
+    public double calcLightningSand(double diameter) {
         if (diameter <= 0 || diameter > 10) {
             return -1;
         }
-        double answer = diameter * Math.PI / 2;
-        return answer;
+        double circumference = diameter * Math.PI / 2;
+        return circumference;
     }
     
     //Calculate the area of a triangle A=h*b/2
