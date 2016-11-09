@@ -6,6 +6,7 @@
 package byui.cit260.fireswamp.view;
 
 import byui.cit260.fireswamp.controller.DangerController;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
