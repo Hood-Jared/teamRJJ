@@ -13,13 +13,13 @@ import java.util.Scanner;
  */
 public abstract class View implements InterfaceView{
     
-    protected String displayeMessage;
+    protected String displayMessage;
     
     public View(){
         
     }
     public View(String message) {
-        this.displayeMessage = message;
+        this.displayMessage = message;
     }
     
     @Override
