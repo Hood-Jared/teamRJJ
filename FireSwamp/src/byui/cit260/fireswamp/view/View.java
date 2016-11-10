@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author ryahh
  */
-public abstract class View implements InterfaceView{
+public abstract class View implements InterfaceView {
     
     protected String displayMessage;
     
@@ -58,6 +58,4 @@ public abstract class View implements InterfaceView{
         
         return input;
     }
-      
-    public 
 }
