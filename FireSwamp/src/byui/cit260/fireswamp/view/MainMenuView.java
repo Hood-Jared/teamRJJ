@@ -12,52 +12,19 @@ import java.util.Scanner;
  *
  * @author ryahh
  */
-public class MainMenuView {
+public class MainMenuView extends View {
 
-    private final String menu = "\nMAIN MENU"
+    public MainMenuView() {
+        super("\nMAIN MENU"
             + "\nN - Start New Game"
             + "\nL - Load Saved Game"
             + "\nH - Help Menu"
             + "\nQ - Quit"
-            + "\n";
-
-    public MainMenuView() {
-
+            + "\n");
     }
 
-    public void display() {
 
-        boolean done = false;
-        do {
-            System.out.println("\n" + this.menu);
-
-            String value = this.getInput();
-
-            done = this.doAction(value);
-        } while (!done);
-
-    }
-
-    public String getInput() {
-        Scanner in = new Scanner(System.in);
-        String input = " ";
-
-        boolean validInput = false;
-
-        while (!validInput) {
-            input = in.nextLine();
-            input = input.trim();
-            input = input.toUpperCase();
-
-            if (input.length() < 1) {
-                System.out.println("\nInvalid value: You must enter a character.");
-            } else {
-                validInput = true;
-            }
-        }
-        return input;
-    }
-
+    @Override
     public boolean doAction(String selection) {
 
         char charSel = selection.charAt(0);

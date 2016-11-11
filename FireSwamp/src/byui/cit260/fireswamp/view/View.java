@@ -31,7 +31,7 @@ public abstract class View implements InterfaceView {
             System.out.println("\n" + this.displayMessage);
             
             String value = this.getInput();
-            
+                                    
             done = this.doAction(value);
         } while (!done);
     }

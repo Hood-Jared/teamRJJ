@@ -19,7 +19,7 @@ public class LightningSandView extends View {
     
     @Override
     public void display() {
-        
+         
         //Randomly generate value or grab it from player's current location
         Random r = new Random();
         diameter = r.nextInt(5) + 5;
