@@ -12,11 +12,11 @@ import java.util.Scanner;
  * @author ryahh & jared
  */
 public class WelcomeView {
-    
-    private void displayBanner(){
+
+    public WelcomeView() {
         
-        System.out.println(
-                "\n*         WELCOME TO THE FIRESWAMP         *"
+        
+        System.out.println("\n*         WELCOME TO THE FIRESWAMP         *"
                 +"\n*_*_*_*_*_*_*_*_*_*_*_*_*__*_*_*_*_*_*_*_*_*"
                 +"\n*                                          *"
                 +"\n*          Enter at your own risk!         *"
@@ -30,10 +30,12 @@ public class WelcomeView {
                 +"\n*             The Lightining Sand          *"
                 +"\n*        If you can survive you can        *"
                 +"\n*     Build your dream home in the swamp.  *"
-                +"\n*_*_*_*_*_*_*_*_*_*_*_*_*__*_*_*_*_*_*_*_*_*"
-                
-        );
-               
+                +"\n*_*_*_*_*_*_*_*_*_*_*_*_*__*_*_*_*_*_*_*_*_*");
+        
+    }
+    
+    private void displayBanner(){
+
     }
     
     public void displayStartProgramView(){

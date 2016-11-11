@@ -25,7 +25,7 @@ public class FireSwamp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         WelcomeView swv = new WelcomeView();
         swv.displayStartProgramView();
         
@@ -96,5 +96,5 @@ public class FireSwamp {
         String mapInfo = map.toString();
         System.out.println(mapInfo);
     }
-    
+
 }
