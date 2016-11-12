@@ -81,8 +81,7 @@ public class HelpMenuView {
     }
     
     private void helpInventory() {
-        System.out.println(
-                "\nWelcome to the Inventory Help Screen"
+        System.out.println("\nWelcome to the Inventory Help Screen"
               + "\n"
               + "\nYour inventory is necessary to help you survive"
               + "\nthe dangers of the Fire Swamp! Should you run"
@@ -96,15 +95,30 @@ public class HelpMenuView {
     }
     
     private void helpClues() {
-        System.out.println("Clues Help");
+        System.out.println("\n\nAt times there may be clues to help you."
+                + "\n"
+                + "\nThese clues are priimarily contained within the"
+                + "\nmap view. You can only see the dangers that are"
+                + "\nnext to you. When you are next to a danger on the"
+                + "\nmap it will be shown by a D. This will tell you"
+                + "\nthat if you move onto that spot of the map you will"
+                + "\nrisk dying from the danger. Good Luck!");
     }
     
     private void helpDangers() {
-        System.out.println("Dangers Help");
+        System.out.println("\nThere are three dangers you should be aware of"
+                + "\n"
+                + "\nROUS's: These are Rats of Unusual Size. They are"
+                + "\nmassive rats about the size of a dog. In order to get"
+                + "\naway from them you will need to be quick on your feet");
     }
     
     private void helpMovement() {
-        System.out.println("Movement Help");
+        System.out.println("\nTo move on the map you will use particular keys"
+                + "\n"
+                + "\nThese keys will move you north, south, east, or west."
+                + "\nBe careful which way you move because if you run into"
+                + "\na danger it may result in your death!");
     }
 
     void displayHelpMenuView() {
