@@ -6,6 +6,7 @@
 package byui.cit260.fireswamp.view;
 
 import byui.cit260.fireswamp.controller.MapController;
+import byui.cit260.fireswamp.controller.MovementController;
 
 /**
  *
@@ -28,19 +29,20 @@ public abstract class GameMenuView extends View {
     public boolean doAction(String selection) {
 
         char charSel = selection.charAt(0);
-
+        
+        MapController mc = new MapController();
         switch (charSel) {
             case 'W':
-                moveNorth();
+                mc.doAction("W");
                 break;
             case 'S':
-                moveSouth();
+                mc.doAction("S");
                 break;
             case 'A':
-                moveWest();
+                mc.doAction("A");
                 break;
             case 'D':
-                moveEast();
+                mc.doAction("D");
                 break;
             case 'I':
                 showInventory();

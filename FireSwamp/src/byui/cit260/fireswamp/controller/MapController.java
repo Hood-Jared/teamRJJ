@@ -28,4 +28,21 @@ public class MapController {
             return true;
     }
     
+    public void doAction(String input) {{
+            
+        if (input == "W") {
+            
+        }
+        else if (input == "A") {
+            
+        }
+        else if (input == "S") {
+            
+        }
+        else if (input == "D") {
+            
+        }
+    }
+    }
+    
 }
