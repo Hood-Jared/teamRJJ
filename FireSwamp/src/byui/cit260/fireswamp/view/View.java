@@ -40,7 +40,7 @@ public abstract class View implements InterfaceView {
     public String getInput() {
         
         Scanner in = new Scanner(System.in);
-        String input = " ";
+        String input = "";
         boolean validInput = false;
         
         while (!validInput){

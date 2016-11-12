@@ -23,10 +23,10 @@ public abstract class MapMenuView extends View {
 
         switch (charSel) {
             case 'O':
-                //openMap();
+                openMap();
                 break;
             case 'R':
-                //returnGame();
+                returnGame();
                 break;
             case 'Q':
                 return true;

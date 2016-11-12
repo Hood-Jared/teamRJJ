@@ -95,8 +95,8 @@ public class DangerControllerTest {
     @Test
     public void testCalcFireSpouts() {
         System.out.println("calcFireSpouts");
-        double height = 20;
-        double base = 5;
+        int height = 20;
+        int base = 5;
         DangerController instance = new DangerController();
         double expResult = 50;
         double result = instance.calcFireSpouts(height, base);
