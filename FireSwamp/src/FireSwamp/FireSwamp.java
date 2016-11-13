@@ -13,7 +13,8 @@ package FireSwamp;
 //import byui.cit260.fireswamp.Location;
 //import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.view.FireSpoutsView;
-import byui.cit260.fireswamp.view.WelcomeView;
+import byui.cit260.fireswamp.view.GameMenuView;
+//import byui.cit260.fireswamp.view.WelcomeView;
 //import byui.cit260.fireswamp.view.MainMenuView;
 //import byui.cit260.fireswamp.view.HelpMenuView;
 /**
@@ -27,8 +28,14 @@ public class FireSwamp {
      */
     public static void main(String[] args) {
         
-        WelcomeView swv = new WelcomeView();
-        swv.displayStartProgramView();
+        GameMenuView gmv = new GameMenuView();
+        gmv.display();
+        
+        FireSpoutsView fsv = new FireSpoutsView();
+        fsv.display();
+        
+        //WelcomeView swv = new WelcomeView();
+        //swv.displayStartProgramView();
                 
     }
 

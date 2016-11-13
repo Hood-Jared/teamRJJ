@@ -6,7 +6,7 @@ package byui.cit260.fireswamp.view;
 import java.util.Scanner;
 
 
-public abstract class MapMenuView extends View {
+public class MapMenuView extends View {
 
 
     public MapMenuView() {
