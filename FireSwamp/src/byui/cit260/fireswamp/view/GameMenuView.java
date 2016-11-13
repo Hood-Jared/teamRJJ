@@ -6,7 +6,7 @@
 package byui.cit260.fireswamp.view;
 
 import byui.cit260.fireswamp.controller.MapController;
-import byui.cit260.fireswamp.controller.MovementController;
+
 
 /**
  *
@@ -45,14 +45,14 @@ public abstract class GameMenuView extends View {
                 mc.doAction("D");
                 break;
             case 'I':
-                showInventory();
+                //showInventory();
                 break;
             case 'H':
                 HelpMenuView hmv = new HelpMenuView();
                 hmv.display();
                 break;
             case 'G':
-                saveGame();
+                //saveGame();
                 break;
             case 'Q':
                 return true;

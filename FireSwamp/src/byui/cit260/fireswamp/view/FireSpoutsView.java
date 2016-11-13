@@ -13,7 +13,7 @@ import java.util.Random;
  *
  * @author blvd
  */
-public abstract class FireSpoutsView extends View {
+public class FireSpoutsView extends View {
     
     //Randomly generate value or grab it from player's current location
     Random r = new Random();

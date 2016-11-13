@@ -12,6 +12,7 @@ package FireSwamp;
 //import byui.cit260.fireswamp.Dangers;
 //import byui.cit260.fireswamp.Location;
 //import byui.cit260.fireswamp.Map;
+import byui.cit260.fireswamp.view.FireSpoutsView;
 import byui.cit260.fireswamp.view.WelcomeView;
 //import byui.cit260.fireswamp.view.MainMenuView;
 //import byui.cit260.fireswamp.view.HelpMenuView;
@@ -25,7 +26,7 @@ public class FireSwamp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
+        
         WelcomeView swv = new WelcomeView();
         swv.displayStartProgramView();
                 
