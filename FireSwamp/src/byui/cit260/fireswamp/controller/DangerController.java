@@ -35,13 +35,13 @@ public class DangerController {
     * player must return the next number in the series.
     */
               
-        public double calcRous(double nextNumber,double lastNumber){
-        double answerRous = lastNumber * 2; 
-        if (nextNumber != answerRous) {
+    public int calcRous(int firstNumber) {
+        int answerRous = firstNumber * 2; 
+        if (firstNumber != answerRous) {
         return -1;
     } 
         
         return answerRous;
   }
 
-}
+}  
