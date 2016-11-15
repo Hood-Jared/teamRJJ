@@ -28,7 +28,7 @@ public class RousView extends View {
                 + "\nYour final clue is " + (firstNumber - firstNumber) + "."
                 + "\n"
                 + "\nIf you can figure out the sequence you can continue."
-                + "\nIf not you will be consumed, piece by piece.";
+                + "\nIf not you will be consumed, piece by piece.");
                 
           
         //collect input
@@ -53,7 +53,7 @@ public class RousView extends View {
         
         DangerController dc = new DangerController();
         
-        double actualAnswer = dc.calcRous(firstNumber);
+        int actualAnswer = dc.calcRous(firstNumber);
                    
         return actualAnswer == input;
           
