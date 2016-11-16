@@ -12,49 +12,44 @@ import java.util.Objects;
  * @author blvd
  */
 public class Location implements Serializable{
+
+    static void setLocationRow(int row) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    static void setLocationVisited(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private int locationRow;
+    private int locationColumn;
+    private boolean locationVisited;
+    private String locationDescription;
+    private LocationType locationType;
     
-    private String playerLocation;
-    private boolean visited;
-    private int row;
-    private int column;
     
     
-    // default constructor function
+     // default constructor function
     public Location() {
+        
+    }  
+    
+    public int getLocationRow() {
+        return locationRow;
     }
 
-    public int getRow() {
-        return row;
-    }
-
-    public void setRow(int row) {
-        this.row = row;
+    public void setRow(int locationRow) {
+        this.locationRow = locationRow;
     }
 
     public int getColumn() {
-        return column;
+        return locationColumn;
     }
 
     public void setColumn(int column) {
-        this.column = column;
+        this.locationColumn = locationColumn;
     }
-
-    // getter and setter functions
-    public String getPlayerLocation() {
-        return playerLocation;
-    }
-
-    public void setPlayerLocation(String playerLocation) {
-        this.playerLocation = playerLocation;
-    }
-
-    public boolean isVisited() {
-        return visited;
-    }
-
-    public void setVisited(boolean visited) {
-        this.visited = visited;
-    }
+   
 
     // hashCode(), toString(), equals() functions
 
@@ -90,6 +85,18 @@ public class Location implements Serializable{
             return false;
         }
         return true;
+    }
+
+    void setLocationColumn(int col) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Object getLocationType() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getRow() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

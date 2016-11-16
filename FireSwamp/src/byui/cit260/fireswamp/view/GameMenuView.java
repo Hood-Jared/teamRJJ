@@ -5,6 +5,8 @@
  */
 package byui.cit260.fireswamp.view;
 
+import FireSwamp.FireSwamp;
+import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.controller.MapController;
 import byui.cit260.fireswamp.view.MapMenuView;
 //import byui.cit260.fireswamp.view.InventoryView;
@@ -44,19 +46,19 @@ public class GameMenuView extends View {
         //InventoryController ic = new InventoryController();
         switch (charSel) {
             case 'W':
-                mc.doAction("W");
+                this.doAction("W");
                 break;
             case 'S':
-                mc.doAction("S");
+                this.doAction("S");
                 break;
             case 'A':
-                mc.doAction("A");
+                this.doAction("A");
                 break;
             case 'D':
-                mc.doAction("D");
+                this.doAction("D");
                 break;
             case 'V':
-                mmv.display();
+                this.displayMap();
                 break;
             case 'L':
                 //Insert reference to Look Method()
@@ -87,6 +89,18 @@ public class GameMenuView extends View {
                 break;
         }
         return false;
+    }
+
+    private void displayMap() {
+        Map map = FireSwamp.getCurrentGame().getGameMap();
+        
+        for(int row = 0; row < Map.ROWS; row++) {
+            for(int col = 0; col < Map.COLUMNS; col++) {
+                char locationType = map.getLocationAt(row, col).getLocationType().toString().charAt(0);
+                System.out.print(locationType + " ");
+            }
+            System.out.println("");
+        }
     }
     
     

@@ -7,82 +7,107 @@ package byui.cit260.fireswamp;
 
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Random;
 /**
  *
  * @author blvd
  */
 public class Map implements Serializable{
-    private String columnCount;
-    private int rowCount;
-    private String playerMap;
+    public static final int ROWS = 5;
+    public static final int COLUMNS = 5;
+    private Location[][] matrix = new Location[ROWS][COLUMNS];
+    private Location mapEntrance;
+    private Location mapExit;
 
-    // default constructor function
+     // default constructor function
     public Map() {
+        
+    } 
+    
+    public  void init() {
+                
+        Random rand = new Random();
+        
+        for(int row = 0; row < ROWS; row++) {
+            for(int col = 0; col < COLUMNS; col++) {
+               Location location = new Location();
+               location.setLocationColumn(col);
+               Location.setLocationRow(row);
+               Location.setLocationVisited(false);
+               
+               rand.nextInt(LocationType.values().length);
+               
+               location.setLocationType(LocationType.values()[randLocation]);
+               
+               matrix[row][col] = location; 
+            }
+        }
+        
     }
     
-    // getter and setter functions
-    public String getColumnCount() {
-        return columnCount;
-    }
-
-    public void setColumnCount(String columnCount) {
-        this.columnCount = columnCount;
-    }
-
-    public int getRowCount() {
-        return rowCount;
-    }
-
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
-    }
-
-    public String getPlayerMap() {
-        return playerMap;
-    }
-
-    public void setPlayerMap(String playerMap) {
-        this.playerMap = playerMap;
+    public Location getLocationAt(int row, int col){
+        return matrix[row][col];
+        
     }
     
+    public Location[][] getMatrix() {
+        return matrix;
+    }
+
+    public void setMatrix(Location[][] matrix) {
+        this.matrix = matrix;
+    }
+
+    public Location getMapEntrance() {
+        return mapEntrance;
+    }
+
+    public void setMapEntrance(Location mapEntrance) {
+        this.mapEntrance = mapEntrance;
+    }
+
+    public Location getMapExit() {
+        return mapExit;
+    }
+
+    public void setMapExit(Location mapExit) {
+        this.mapExit = mapExit;
+    }
+
+          
     // hashCode(), toString(), equals() functions
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 97 * hash + Objects.hashCode(this.columnCount);
-        hash = 97 * hash + this.rowCount;
-        hash = 97 * hash + Objects.hashCode(this.playerMap);
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.mapEntrance);
+        hash = 97 * hash + Objects.hashCode(this.mapExit);
         return hash;
     }
 
-    @Override
-    public String toString() {
-        return "Map{" + "columnCount=" + columnCount + ", rowCount=" + rowCount + ", playerMap=" + playerMap + '}';
-    }
-
+    
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Map other = (Map) obj;
-        if (this.rowCount != other.rowCount) {
+        if (getClass() != obj.getClass()) {
             return false;
         }
-        if (!Objects.equals(this.columnCount, other.columnCount)) {
+        if (!Objects.equals(this.mapEntrance, other.mapEntrance)) {
             return false;
         }
-        if (!Objects.equals(this.playerMap, other.playerMap)) {
+        if (!Objects.equals(this.mapExit, other.mapExit)) {
             return false;
         }
         return true;
     }
     
-    
+    @Override
+    public String toString() {
+        return "Map{" + ", mapEntrace =" + mapEntrance + ", mapExit =" + mapExit + '}';
+    }
+
 }

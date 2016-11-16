@@ -5,7 +5,9 @@
  */
 package byui.cit260.fireswamp.view;
 
+import FireSwamp.FireSwamp;
 import byui.cit260.fireswamp.controller.DangerController;
+import byui.cit260.fireswamp.controller.GameControl;
 import java.util.Scanner;
 
 /**
@@ -49,7 +51,10 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        System.out.println("START NEW GAME CALLED");
+        GameControl gc = new GameControl();
+        gc.createNewGame(FireSwamp.getPlayer());
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void loadGame() {

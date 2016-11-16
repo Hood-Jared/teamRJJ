@@ -12,6 +12,9 @@ package FireSwamp;
 //import byui.cit260.fireswamp.Dangers;
 //import byui.cit260.fireswamp.Location;
 //import byui.cit260.fireswamp.Map;
+import byui.cit260.fireswamp.view.StartProgramView;
+import byui.cit260.fireswamp.Game;
+import byui.cit260.fireswamp.Player;
 import byui.cit260.fireswamp.view.FireSpoutsView;
 import byui.cit260.fireswamp.view.GameMenuView;
 //import byui.cit260.fireswamp.view.WelcomeView;
@@ -23,19 +26,34 @@ import byui.cit260.fireswamp.view.GameMenuView;
  */
 public class FireSwamp {
 
+    
+    private static Game currentGame = null;
+    private static Player player = null; 
+    
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+    
+    public static void setCurrentGame(Game currentGame) {
+        FireSwamp.currentGame = currentGame;
+    }
+      
     /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        
-        GameMenuView gmv = new GameMenuView();
-        gmv.display();
-        
-        FireSpoutsView fsv = new FireSpoutsView();
-        fsv.display();
-        
-        //WelcomeView swv = new WelcomeView();
-        //swv.displayStartProgramView();
+     * @param player
+     */  
+    
+    public static Player getPlayer() {
+        return FireSwamp.player;
+    }
+    
+    public static void setPlayer(Player player) {
+        FireSwamp.player = player;
+    }
+    
+     public static void main(String[] args){
+         
+         StartProgramView startProgramView = new StartProgramView();
+         startProgramView.display();
                 
     }
 
