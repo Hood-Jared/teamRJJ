@@ -32,10 +32,10 @@ public class Map implements Serializable{
             for(int col = 0; col < COLUMNS; col++) {
                Location location = new Location();
                location.setLocationColumn(col);
-               Location.setLocationRow(row);
-               Location.setLocationVisited(false);
+               location.setLocationRow(row);
+               location.setLocationVisited(false);
                
-               rand.nextInt(LocationType.values().length);
+               int randLocation = rand.nextInt(LocationType.values().length);
                
                location.setLocationType(LocationType.values()[randLocation]);
                
@@ -94,12 +94,6 @@ public class Map implements Serializable{
             return false;
         }
         if (getClass() != obj.getClass()) {
-            return false;
-        }
-        if (!Objects.equals(this.mapEntrance, other.mapEntrance)) {
-            return false;
-        }
-        if (!Objects.equals(this.mapExit, other.mapExit)) {
             return false;
         }
         return true;

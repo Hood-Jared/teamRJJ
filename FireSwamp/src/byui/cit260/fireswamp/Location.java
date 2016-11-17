@@ -6,39 +6,29 @@
 package byui.cit260.fireswamp;
 
 import java.io.Serializable;
-import java.util.Objects;
+
 /**
  *
  * @author blvd
  */
-public class Location implements Serializable{
-
-    static void setLocationRow(int row) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    static void setLocationVisited(boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+public class Location implements Serializable {
 
     private int locationRow;
     private int locationColumn;
     private boolean locationVisited;
     private String locationDescription;
     private LocationType locationType;
-    
-    
-    
-     // default constructor function
+
+    // default constructor function
     public Location() {
-        
-    }  
-    
+
+    }
+
     public int getLocationRow() {
         return locationRow;
     }
 
-    public void setRow(int locationRow) {
+    public void setLocationRow(int locationRow) {
         this.locationRow = locationRow;
     }
 
@@ -49,23 +39,46 @@ public class Location implements Serializable{
     public void setColumn(int column) {
         this.locationColumn = locationColumn;
     }
-   
+
+    public int getLocationColumn() {
+        return locationColumn;
+    }
+
+    public void setLocationColumn(int locationColumn) {
+        this.locationColumn = locationColumn;
+    }
+
+    public boolean isLocationVisited() {
+        return locationVisited;
+    }
+
+    public void setLocationVisited(boolean locationVisited) {
+        this.locationVisited = locationVisited;
+    }
+
+    public String getLocationDescription() {
+        return locationDescription;
+    }
+
+    public void setLocationDescription(String locationDescription) {
+        this.locationDescription = locationDescription;
+    }
+
+    public LocationType getLocationType() {
+        return locationType;
+    }
+
+    public void setLocationType(LocationType locationType) {
+        this.locationType = locationType;
+    }
 
     // hashCode(), toString(), equals() functions
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.playerLocation);
-        hash = 47 * hash + (this.visited ? 1 : 0);
         return hash;
     }
 
-    @Override
-    public String toString() {
-        return "Location{" + "playerLocation=" + playerLocation + ", visited=" + visited + '}';
-    }
-    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -78,26 +91,7 @@ public class Location implements Serializable{
             return false;
         }
         final Location other = (Location) obj;
-        if (this.visited != other.visited) {
-            return false;
-        }
-        if (!Objects.equals(this.playerLocation, other.playerLocation)) {
-            return false;
-        }
         return true;
     }
 
-    void setLocationColumn(int col) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Object getLocationType() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public int getRow() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

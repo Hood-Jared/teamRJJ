@@ -16,7 +16,7 @@ import byui.cit260.fireswamp.Player;
  */
 public class GameControl {
     
-    public void creatNewGame(Player player) {
+    public void createNewGame(Player player) {
         
         Game currentGame = new Game();
         
@@ -39,16 +39,8 @@ public class GameControl {
         Player player = new Player();
         player.setPlaerName(name);
         
-        FireSwamp.setPlayer(Player);
+        FireSwamp.setPlayer(player);
         
         return player;
-    }
-    
-    public static void creatNewGame(String playerName) {
-        System.out.println("\n creatNewGame() **** Function called ****");
-    }
-
-    public void createNewGame(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

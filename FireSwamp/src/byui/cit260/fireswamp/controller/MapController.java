@@ -14,7 +14,7 @@ import byui.cit260.fireswamp.Location;
 public class MapController {
     
     public boolean checkMoveNorth(Location location){
-            if (location.getRow()== 0){
+            if (location.getLocationRow()== 0){
                 return false;
             }
             return true;
@@ -22,7 +22,7 @@ public class MapController {
     }
     
     public boolean checkMoveEast(Location location){
-            if (location.getRow()== 0){
+            if (location.getLocationRow()== 0){
             
             }
             return true;
