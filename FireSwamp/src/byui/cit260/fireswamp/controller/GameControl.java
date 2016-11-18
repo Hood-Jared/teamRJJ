@@ -37,7 +37,7 @@ public class GameControl {
         }
         
         Player player = new Player();
-        player.setPlaerName(name);
+        player.setPlayerName(name);
         
         FireSwamp.setPlayer(player);
         

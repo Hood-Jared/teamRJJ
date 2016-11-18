@@ -11,8 +11,8 @@ package byui.cit260.fireswamp;
  */
 public class Player {
 
-    public void setPlaerName(String name) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setPlayerName(String name) {
+        
     }
     
 }
