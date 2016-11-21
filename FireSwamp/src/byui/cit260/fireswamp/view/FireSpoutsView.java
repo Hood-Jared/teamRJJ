@@ -17,8 +17,8 @@ public class FireSpoutsView extends View {
     
     //Randomly generate value or grab it from player's current location
     Random r = new Random();
-    private int height = 7;//r.nextInt(5) + 5;
-    private int base = 4;//r.nextInt(5) + 5;
+    private int height = r.nextInt(5) + 5;
+    private int base = r.nextInt(5) + 5;
     
     @Override
     public void display() {

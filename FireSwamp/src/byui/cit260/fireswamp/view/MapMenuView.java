@@ -3,11 +3,12 @@
  */
 
 package byui.cit260.fireswamp.view;
+import byui.cit260.fireswamp.controller.MapController;
 import java.util.Scanner;
 
 
 public class MapMenuView extends View {
-
+    private int row, column;
 
     public MapMenuView() {
         super("\nMap Menu"
@@ -23,7 +24,8 @@ public class MapMenuView extends View {
 
         switch (charSel) {
             case 'O':
-                //openMap();
+                MapController mc = new MapController();
+                
                 break;
             case 'R':
                 //returnGame();
@@ -36,5 +38,6 @@ public class MapMenuView extends View {
         }
         return false;
     }
+    
 
 }

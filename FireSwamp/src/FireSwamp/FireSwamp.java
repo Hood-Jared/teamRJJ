@@ -6,27 +6,39 @@
  */
 package FireSwamp;
 //import byui.cit260.fireswamp.Character;
-//import byui.cit260.fireswamp.Items;
+import byui.cit260.fireswamp.Items;
 //import byui.cit260.fireswamp.Game;
 //import byui.cit260.fireswamp.Scene;
 //import byui.cit260.fireswamp.Dangers;
 //import byui.cit260.fireswamp.Location;
 //import byui.cit260.fireswamp.Map;
-import byui.cit260.fireswamp.view.StartProgramView;
+//import byui.cit260.fireswamp.view.StartProgramView;
 import byui.cit260.fireswamp.Game;
 import byui.cit260.fireswamp.Player;
-import byui.cit260.fireswamp.view.FireSpoutsView;
-import byui.cit260.fireswamp.view.GameMenuView;
+//import byui.cit260.fireswamp.view.FireSpoutsView;
+//import byui.cit260.fireswamp.view.GameMenuView;
 //import byui.cit260.fireswamp.view.WelcomeView;
 //import byui.cit260.fireswamp.view.MainMenuView;
 //import byui.cit260.fireswamp.view.HelpMenuView;
+import byui.cit260.fireswamp.view.ItemsView;
 /**
  *
  * @author blvd
  */
 public class FireSwamp {
 
-    
+    public static void main(String[] args){
+        
+        ItemsView iv = new ItemsView();
+        
+        //Items i = new Items();
+        //i.itemPricing(i.getRope(), i.getBucketOfWater());
+        
+        //StartProgramView startProgramView = new StartProgramView();
+        //startProgramView.display();
+         
+                
+    }
     private static Game currentGame = null;
     private static Player player = null; 
     
@@ -50,11 +62,6 @@ public class FireSwamp {
         FireSwamp.player = player;
     }
     
-     public static void main(String[] args){
-         
-         StartProgramView startProgramView = new StartProgramView();
-         startProgramView.display();
-                
-    }
+    
 
 }

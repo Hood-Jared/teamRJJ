@@ -5,6 +5,7 @@
  */
 package byui.cit260.fireswamp;
 
+import byui.cit260.fireswamp.view.RousView;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -86,15 +87,17 @@ public class Game implements Serializable{
     }
 
     public Map getGameMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Map map = new Map();
+        return map;
+        
     }
-
+    
     public void setGamePlayer(Player player) {
         
     }
 
     public void setGameMap(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
     
     

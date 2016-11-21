@@ -19,10 +19,10 @@ public class Map implements Serializable{
     private Location mapEntrance;
     private Location mapExit;
 
-     // default constructor function
+    // default constructor function
     public Map() {
         
-    } 
+    }
     
     public  void init() {
                 
