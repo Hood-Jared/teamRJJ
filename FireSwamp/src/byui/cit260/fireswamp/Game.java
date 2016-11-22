@@ -5,7 +5,6 @@
  */
 package byui.cit260.fireswamp;
 
-import byui.cit260.fireswamp.view.RousView;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -17,6 +16,7 @@ public class Game implements Serializable{
     private boolean enterSwampYorN;
     private int numberOfTurns;
     private String help;
+    private Map gameMap;
 
     // default constructor function
     public Game() {
@@ -87,17 +87,15 @@ public class Game implements Serializable{
     }
 
     public Map getGameMap() {
-        Map map = new Map();
-        return map;
-        
+        return gameMap;
     }
-    
+
     public void setGamePlayer(Player player) {
         
     }
 
     public void setGameMap(Map map) {
-        
+        gameMap = map;
     }
     
     

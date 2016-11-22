@@ -6,9 +6,7 @@
 package byui.cit260.fireswamp.view;
 
 import FireSwamp.FireSwamp;
-import byui.cit260.fireswamp.controller.DangerController;
 import byui.cit260.fireswamp.controller.GameControl;
-import java.util.Scanner;
 
 /**
  *

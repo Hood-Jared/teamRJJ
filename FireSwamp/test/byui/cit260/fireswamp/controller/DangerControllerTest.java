@@ -67,26 +67,22 @@ public class DangerControllerTest {
     @Test
     public void testCalcRous() {
         System.out.println("calcRous");
-        double nextNumber = 0.0;
-        double lastNumber = 0.0;
+        int nextNumber = 2;
         DangerController instance = new DangerController();
-        double expResult = 0.0;
-        double result = instance.calcRous(nextNumber, lastNumber);
+        int expResult = 4;
+        double result = instance.calcRous(nextNumber);
         assertEquals(expResult, result, 0.0);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-        
+        /*
         nextNumber = 4;
-        lastNumber = 2;
         expResult = 4;
-        result = instance.calcRous(nextNumber, lastNumber);
+        result = instance.calcRous(nextNumber);
         assertEquals(expResult, result, 0.0);
         
         nextNumber = 3;
-        lastNumber = 2;
         expResult = -1;
-        result = instance.calcRous(nextNumber, lastNumber);
+        result = instance.calcRous(nextNumber);
         assertEquals(expResult, result, 0.0);
+        */
     }
 
     /**
@@ -119,6 +115,19 @@ public class DangerControllerTest {
         expResult = -1;
         result = instance.calcFireSpouts(height, base);
         assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of calcLightningSand method, of class DangerController.
+     */
+    @Test
+    public void testCalcLightningSand() {
+        System.out.println("calcLightningSand");
+        double diameter = 5.0;
+        DangerController instance = new DangerController();
+        double expResult = 7.85;
+        double result = instance.calcLightningSand(diameter);
+        assertEquals(expResult, result, 0.01);
     }
     
 }

@@ -41,7 +41,7 @@ public class DangerController {
         return -1;
     } 
         
-        return answerRous;
+        else return answerRous;
   }
 
 }  

@@ -6,6 +6,7 @@
 package byui.cit260.fireswamp;
 
 import java.io.Serializable;
+import java.util.Random;
 
 /**
  *
@@ -18,11 +19,15 @@ public class Location implements Serializable {
     private boolean locationVisited;
     private String locationDescription;
     private LocationType locationType;
-
+    Random r = new Random();
+    
+    
+    
     // default constructor function
-    public Location() {
-
-    }
+    //public LocationType Location() {
+        //LocationType[] v = locationType.values();
+        //return v[r.nextInt(4)];
+    //}
 
     public int getLocationRow() {
         return locationRow;

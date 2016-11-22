@@ -6,11 +6,9 @@
 package byui.cit260.fireswamp.view;
 
 import FireSwamp.FireSwamp;
+import byui.cit260.fireswamp.LocationType;
 import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.controller.MapController;
-import byui.cit260.fireswamp.view.MapMenuView;
-//import byui.cit260.fireswamp.view.InventoryView;
-//import byui.cit260.fireswamp.view.InventoryController;
 
 /**
  *
@@ -33,6 +31,7 @@ public class GameMenuView extends View {
             + "\nH - Help Menu"
             + "\nG - Save Game"
             + "\nQ - Quit to main menu");
+
     }
 
     public boolean doAction(String selection) {
@@ -41,21 +40,23 @@ public class GameMenuView extends View {
         
         MapController mc = new MapController();
         MapMenuView mmv = new MapMenuView();
+        Map map = new Map();
+        map.init();
         //SensesController sc = new SensesController();
         //InventoryView iv = new InventoryView();
         //InventoryController ic = new InventoryController();
         switch (charSel) {
             case 'W':
-                this.doAction("W");
+                //this.doAction("W");
                 break;
             case 'S':
-                this.doAction("S");
+                //this.doAction("S");
                 break;
             case 'A':
-                this.doAction("A");
+                //this.doAction("A");
                 break;
             case 'D':
-                this.doAction("D");
+                //this.doAction("D");
                 break;
             case 'V':
                 this.displayMap();
@@ -90,15 +91,29 @@ public class GameMenuView extends View {
         }
         return false;
     }
-
+    
+    //Displays the map
     private void displayMap() {
+        
+        System.out.println("Map Index: \n\n"
+                + "N: No Dangers"
+                + "\nF: Fire Spout"
+                + "\nR: ROUS Rats of Unusual Size"
+                + "\nL: Lightning Sand"
+                + "\nS: Your Start position"
+                + "\nE: Your End position"
+                + "\n");
+        
         Map map = FireSwamp.getCurrentGame().getGameMap();
         
         for(int row = 0; row < Map.ROWS; row++) {
             for(int col = 0; col < Map.COLUMNS; col++) {
                 char locationType = map.getLocationAt(row, col).getLocationType().toString().charAt(0);
-                System.out.print(locationType + " ");
+                System.out.print(locationType + "\t");
+                
             }
+            System.out.println("");
+            System.out.println("");
             System.out.println("");
         }
     }

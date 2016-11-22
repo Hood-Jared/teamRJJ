@@ -6,6 +6,7 @@
 package byui.cit260.fireswamp;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
 /**
@@ -13,38 +14,90 @@ import java.util.Random;
  * @author blvd
  */
 public class Map implements Serializable{
+    
+    Random rand = new Random();
     public static final int ROWS = 5;
     public static final int COLUMNS = 5;
     private Location[][] matrix = new Location[ROWS][COLUMNS];
-    private Location mapEntrance;
-    private Location mapExit;
+    private Location mapEntrance = new Location();
+    private Location mapExit = new Location();
+    
 
     // default constructor function
     public Map() {
         
     }
     
-    public  void init() {
+    public void init() {
                 
-        Random rand = new Random();
+        mapEntrance.setLocationRow(4);
+        mapEntrance.setLocationColumn(rand.nextInt(5));
+        mapExit.setLocationRow(0);
+        mapExit.setLocationColumn(rand.nextInt(5));
+        
+        //Random rand = new Random();
         
         for(int row = 0; row < ROWS; row++) {
             for(int col = 0; col < COLUMNS; col++) {
-               Location location = new Location();
-               location.setLocationColumn(col);
-               location.setLocationRow(row);
-               location.setLocationVisited(false);
-               
-               int randLocation = rand.nextInt(LocationType.values().length);
-               
-               location.setLocationType(LocationType.values()[randLocation]);
-               
-               matrix[row][col] = location; 
+                Location location = new Location();
+                if(mapEntrance.getLocationRow() == row && mapEntrance.getLocationColumn() == col) {
+                    this.specificIndex(location, row, col, 4);
+                }
+                else if (mapExit.getLocationRow() == row && mapExit.getLocationColumn() == col) {
+                    this.specificIndex(location, row, col, 5);
+                }
+                else {
+                    this.randIndex(location, row, col, 3);
+                }
+                
             }
         }
         
     }
     
+    private void specificIndex(Location location, int row, int col, int index){
+                
+        location.setLocationColumn(col);
+        location.setLocationRow(row);
+        location.setLocationVisited(false);
+        
+        int randLocation = index;
+        
+        location.setLocationType(LocationType.values()[randLocation]);
+        
+        matrix[row][col] = location; 
+    }
+    
+    private void randIndex(Location location, int row, int col, int index){
+                
+        location.setLocationColumn(col);
+        location.setLocationRow(row);
+        location.setLocationVisited(false);
+        
+        int randLocation = rand.nextInt(index);
+        
+        location.setLocationType(LocationType.values()[randLocation]);
+        
+        matrix[row][col] = location; 
+    }
+    
+    public void setMapEntrance(Location mapEntrance) {
+        this.mapEntrance = mapEntrance;
+    }
+
+    public void setMapExit(Location mapExit) {
+        this.mapExit = mapExit;
+    }
+
+    public Location getMapEntrance() {
+        return mapEntrance;
+    }
+
+    public Location getMapExit() {
+        return mapExit;
+    }
+
+       
     public Location getLocationAt(int row, int col){
         return matrix[row][col];
         
@@ -57,51 +110,46 @@ public class Map implements Serializable{
     public void setMatrix(Location[][] matrix) {
         this.matrix = matrix;
     }
-
-    public Location getMapEntrance() {
-        return mapEntrance;
-    }
-
-    public void setMapEntrance(Location mapEntrance) {
-        this.mapEntrance = mapEntrance;
-    }
-
-    public Location getMapExit() {
-        return mapExit;
-    }
-
-    public void setMapExit(Location mapExit) {
-        this.mapExit = mapExit;
-    }
-
-          
+    
     // hashCode(), toString(), equals() functions
-    @Override
+    @Override          
     public int hashCode() {
-        int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.mapEntrance);
-        hash = 97 * hash + Objects.hashCode(this.mapExit);
+        int hash = 5;
+        hash = 17 * hash + Arrays.deepHashCode(this.matrix);
+        hash = 17 * hash + Objects.hashCode(this.mapEntrance);
+        hash = 17 * hash + Objects.hashCode(this.mapExit);
         return hash;
     }
 
-    
-    @Override
+    @Override    
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
         }
         if (getClass() != obj.getClass()) {
             return false;
         }
-        if (getClass() != obj.getClass()) {
+        final Map other = (Map) obj;
+        if (!Arrays.deepEquals(this.matrix, other.matrix)) {
+            return false;
+        }
+        if (!Objects.equals(this.mapEntrance, other.mapEntrance)) {
+            return false;
+        }
+        if (!Objects.equals(this.mapExit, other.mapExit)) {
             return false;
         }
         return true;
     }
-    
+
     @Override
     public String toString() {
-        return "Map{" + ", mapEntrace =" + mapEntrance + ", mapExit =" + mapExit + '}';
+        return "Map{" + "matrix=" + matrix + ", mapEntrance=" + mapEntrance + ", mapExit=" + mapExit + '}';
     }
+    
+    
 
 }

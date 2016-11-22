@@ -24,10 +24,9 @@ public class MapMenuView extends View {
 
         switch (charSel) {
             case 'O':
-                MapController mc = new MapController();
-                
+                                
                 break;
-            case 'R':
+            case 'L':
                 //returnGame();
                 break;
             case 'Q':

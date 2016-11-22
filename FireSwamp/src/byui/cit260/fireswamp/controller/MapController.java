@@ -12,6 +12,15 @@ import byui.cit260.fireswamp.Location;
  * @author ryahh
  */
 public class MapController {
+
+    public MapController() {
+    
+        
+    
+    }
+    
+    
+    
     
     public boolean checkMoveNorth(Location location){
             if (location.getLocationRow()== 0){
