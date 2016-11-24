@@ -14,7 +14,10 @@ package FireSwamp;
 //import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.view.StartProgramView;
 import byui.cit260.fireswamp.Game;
+import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Player;
+import byui.cit260.fireswamp.controller.MapController;
+import exceptions.MapControllerException;
 //import byui.cit260.fireswamp.view.FireSpoutsView;
 //import byui.cit260.fireswamp.view.GameMenuView;
 //import byui.cit260.fireswamp.view.WelcomeView;
@@ -28,10 +31,13 @@ import byui.cit260.fireswamp.Player;
  */
 public class FireSwamp {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws MapControllerException{
         
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.display();
+          MapController mc = new MapController();
+          mc.checkMoveNorth(-1);
+        
+//        StartProgramView startProgramView = new StartProgramView();
+//        startProgramView.display();
          
                 
     }

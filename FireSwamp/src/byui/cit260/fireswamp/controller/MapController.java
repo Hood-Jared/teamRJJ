@@ -6,6 +6,7 @@
 package byui.cit260.fireswamp.controller;
 
 import byui.cit260.fireswamp.Location;
+import exceptions.MapControllerException;
 
 /**
  *
@@ -15,24 +16,41 @@ public class MapController {
 
     public MapController() {
     
-        
+    
     
     }
     
     
     
     
-    public boolean checkMoveNorth(Location location){
-            if (location.getLocationRow()== 0){
-                return false;
-            }
-            return true;
+    public void checkMoveNorth(int row) throws MapControllerException {
         
+        try {
+            if (row < 0){
+                throw new MapControllerException();
+            }
+        } catch (MapControllerException mce){
+            System.out.println(mce.getMessage());
+        } 
     }
     
     public boolean checkMoveEast(Location location){
-            if (location.getLocationRow()== 0){
-            
+            if (location.getLocationRow() < 0){
+                return false;
+            }
+            return true;
+    }
+    
+    public boolean checkMoveSouth(Location location){
+            if (location.getLocationRow() < 0){
+                return false;
+            }
+            return true;
+    }
+    
+    public boolean checkMoveWest(Location location){
+            if (location.getLocationRow() < 0){
+                return false;
             }
             return true;
     }

@@ -6,20 +6,18 @@
 package byui.cit260.fireswamp.controller;
 
 import byui.cit260.fireswamp.Location;
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author ryahh
+ * @author blvd
  */
 public class MapControllerTest {
     
     public MapControllerTest() {
     }
-    
+
     /**
      * Test of checkMoveNorth method, of class MapController.
      */
@@ -27,16 +25,11 @@ public class MapControllerTest {
     public void testCheckMoveNorth() {
         System.out.println("checkMoveNorth");
         Location location = new Location();
-        MapController instance = new MapController();
-        boolean expResult = true;
-        location.setRow(4);
-        boolean result = instance.checkMoveNorth(location);
-        assertEquals(expResult, result);
         
-        expResult = false;
-        location.setRow(0);
-        result = instance.checkMoveNorth(location);
-        assertEquals(expResult, result);
+        MapController instance = new MapController();
+        instance.checkMoveNorth(location);
     }
+
+    
     
 }

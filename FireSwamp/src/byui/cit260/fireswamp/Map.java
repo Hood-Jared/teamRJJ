@@ -47,7 +47,7 @@ public class Map implements Serializable{
                     this.specificIndex(location, row, col, 5);
                 }
                 else {
-                    this.randIndex(location, row, col, 3);
+                    this.randIndex(location, row, col, 4);
                 }
                 
             }
