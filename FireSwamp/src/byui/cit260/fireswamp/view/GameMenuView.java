@@ -9,6 +9,7 @@ import FireSwamp.FireSwamp;
 import byui.cit260.fireswamp.LocationType;
 import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.controller.MapController;
+import byui.cit260.fireswamp.controller.MoveController;
 
 /**
  *
@@ -47,16 +48,16 @@ public class GameMenuView extends View {
         //InventoryController ic = new InventoryController();
         switch (charSel) {
             case 'W':
-                //this.doAction("W");
+                this.moveNorth();
                 break;
             case 'S':
-                //this.doAction("S");
+                this.moveSouth();
                 break;
             case 'A':
-                //this.doAction("A");
+                this.moveWest();
                 break;
             case 'D':
-                //this.doAction("D");
+                this.moveEast();
                 break;
             case 'V':
                 this.displayMap();
@@ -115,6 +116,38 @@ public class GameMenuView extends View {
             System.out.println("");
             System.out.println("");
             System.out.println("");
+        }
+    }
+
+    private void moveNorth() {
+        MoveController mc = new MoveController();
+        boolean success = mc.moveNorth();
+        if(!success){
+            System.out.println(" ");
+        }
+    }
+
+    private void moveSouth() {
+       MoveController mc = new MoveController();
+        boolean success = mc.moveSouth();
+        if(!success){
+            System.out.println(" ");
+        }
+    }
+
+    private void moveWest() {
+        MoveController mc = new MoveController();
+        boolean success = mc.moveWest();
+        if(!success){
+            System.out.println(" ");
+        }
+    }
+
+    private void moveEast() {
+      MoveController mc = new MoveController();
+        boolean success = mc.moveEast();
+        if(!success){
+            System.out.println(" ");
         }
     }
     

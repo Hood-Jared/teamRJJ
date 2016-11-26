@@ -14,14 +14,10 @@ import exceptions.MapControllerException;
  */
 public class MapController {
 
-    public MapController() {
-    
-    
+    public MapController() {      
     
     }
-    
-    
-    
+        
     
     public void checkMoveNorth(int row) throws MapControllerException {
         
@@ -34,25 +30,34 @@ public class MapController {
         } 
     }
     
-    public boolean checkMoveEast(Location location){
-            if (location.getLocationRow() < 0){
-                return false;
+    public void checkMoveEast(int row) throws MapControllerException {
+       try {
+            if (row < 0){
+                throw new MapControllerException();
             }
-            return true;
+        } catch (MapControllerException mce){
+            System.out.println(mce.getMessage());
+        }     
     }
     
-    public boolean checkMoveSouth(Location location){
-            if (location.getLocationRow() < 0){
-                return false;
+    public void checkMoveSouth(int row) throws MapControllerException {
+            try {
+            if (row < 0){
+                throw new MapControllerException();
             }
-            return true;
+        } catch (MapControllerException mce){
+            System.out.println(mce.getMessage());
+        } 
     }
     
-    public boolean checkMoveWest(Location location){
-            if (location.getLocationRow() < 0){
-                return false;
+    public void checkMoveWest(int row) throws MapControllerException {
+            try {
+            if (row < 0){
+                throw new MapControllerException();
             }
-            return true;
+        } catch (MapControllerException mce){
+            System.out.println(mce.getMessage());
+        } 
     }
     
     public void doAction(String input) {{
