@@ -18,14 +18,12 @@ public class Map implements Serializable{
     Random rand = new Random();
     public static final int ROWS = 5;
     public static final int COLUMNS = 5;
+    private Location playerLocation = new Location();
     private Location[][] matrix = new Location[ROWS][COLUMNS];
     private Location mapEntrance = new Location();
     private Location mapExit = new Location();
     
-
-    // default constructor function
-    public Map() {
-        
+    public Map() {        
     }
     
     public void init() {
@@ -35,24 +33,27 @@ public class Map implements Serializable{
         mapExit.setLocationRow(0);
         mapExit.setLocationColumn(rand.nextInt(5));
         
-        //Random rand = new Random();
-        
         for(int row = 0; row < ROWS; row++) {
             for(int col = 0; col < COLUMNS; col++) {
                 Location location = new Location();
+                //set the starting point on the map
                 if(mapEntrance.getLocationRow() == row && mapEntrance.getLocationColumn() == col) {
+                    this.specificIndex(location, row, col, 5);
+                    
+                    //set players start and current location
+                    playerLocation.setLocationRow(row);
+                    playerLocation.setLocationColumn(col);
+                }
+                //set the exit point of the map
+                else if (mapExit.getLocationRow() == row && mapExit.getLocationColumn() == col) {
                     this.specificIndex(location, row, col, 4);
                 }
-                else if (mapExit.getLocationRow() == row && mapExit.getLocationColumn() == col) {
-                    this.specificIndex(location, row, col, 5);
-                }
+                //randomly set the dangers on the map
                 else {
                     this.randIndex(location, row, col, 4);
                 }
-                
             }
-        }
-        
+        }  
     }
     
     private void specificIndex(Location location, int row, int col, int index){
@@ -61,9 +62,9 @@ public class Map implements Serializable{
         location.setLocationRow(row);
         location.setLocationVisited(false);
         
-        int randLocation = index;
+        int specificIndex = index;
         
-        location.setLocationType(LocationType.values()[randLocation]);
+        location.setLocationType(LocationType.values()[specificIndex]);
         
         matrix[row][col] = location; 
     }
@@ -80,6 +81,10 @@ public class Map implements Serializable{
         
         matrix[row][col] = location; 
     }
+
+    public void setPlayerLocation(Location playerLocation) {
+        this.playerLocation = playerLocation;
+    }
     
     public void setMapEntrance(Location mapEntrance) {
         this.mapEntrance = mapEntrance;
@@ -89,6 +94,10 @@ public class Map implements Serializable{
         this.mapExit = mapExit;
     }
 
+    public Location getPlayerLocation() {
+        return playerLocation;
+    }
+    
     public Location getMapEntrance() {
         return mapEntrance;
     }
@@ -99,8 +108,7 @@ public class Map implements Serializable{
 
        
     public Location getLocationAt(int row, int col){
-        return matrix[row][col];
-        
+        return matrix[row][col];    
     }
     
     public Location[][] getMatrix() {
@@ -110,6 +118,8 @@ public class Map implements Serializable{
     public void setMatrix(Location[][] matrix) {
         this.matrix = matrix;
     }
+    
+    
     
     // hashCode(), toString(), equals() functions
     @Override          
@@ -149,7 +159,4 @@ public class Map implements Serializable{
     public String toString() {
         return "Map{" + "matrix=" + matrix + ", mapEntrance=" + mapEntrance + ", mapExit=" + mapExit + '}';
     }
-    
-    
-
 }

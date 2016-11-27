@@ -6,7 +6,7 @@
 package byui.cit260.fireswamp.controller;
 
 import byui.cit260.fireswamp.Location;
-import exceptions.MapControllerException;
+import byui.cit260.fireswamp.exceptions.MapControllerException;
 
 /**
  *
@@ -16,60 +16,42 @@ public class MapController {
 
     public MapController() {
     
-    
-    
     }
     
-    
-    
-    
-    public void checkMoveNorth(int row) throws MapControllerException {
-        
-        try {
-            if (row < 0){
-                throw new MapControllerException();
-            }
-        } catch (MapControllerException mce){
-            System.out.println(mce.getMessage());
-        } 
-    }
-    
-    public boolean checkMoveEast(Location location){
-            if (location.getLocationRow() < 0){
-                return false;
-            }
-            return true;
-    }
-    
-    public boolean checkMoveSouth(Location location){
-            if (location.getLocationRow() < 0){
-                return false;
-            }
-            return true;
-    }
-    
-    public boolean checkMoveWest(Location location){
-            if (location.getLocationRow() < 0){
-                return false;
-            }
-            return true;
-    }
-    
-    public void doAction(String input) {{
-            
-        if (input == "W") {
-            
+    public boolean checkMove(int row, int col) {
+        if((row < 0 || row > 4) || (col < 0 || col > 4)) {
+            return false;
         }
-        else if (input == "A") {
-            
-        }
-        else if (input == "S") {
-            
-        }
-        else if (input == "D") {
-            
-        }
+        return true;
     }
-    }
+    
+//    public boolean checkMoveNorth(int row) throws MapControllerException {
+//            if (row < 0 || row > 4){
+//                return false;
+//            }
+//            else return true;
+//    }
+//    
+//    public boolean checkMoveEast(Location location){
+//            if (location.getLocationColumn()< 0){
+//                return false;
+//            }
+//            return true;
+//    }
+//    
+//    public boolean checkMoveSouth(Location location){
+//            if (location.getLocationRow() < 0){
+//                return false;
+//            }
+//            return true;
+//    }
+//    
+//    public boolean checkMoveWest(Location location){
+//            if (location.getLocationColumn() < 0){
+//                return false;
+//            }
+//            return true;
+//    }
+    
     
 }

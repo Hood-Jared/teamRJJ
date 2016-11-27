@@ -9,12 +9,20 @@ import FireSwamp.FireSwamp;
 import byui.cit260.fireswamp.LocationType;
 import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.controller.MapController;
+import byui.cit260.fireswamp.exceptions.*;
+import byui.cit260.fireswamp.Location;
+import byui.cit260.fireswamp.Game;
+
 
 /**
  *
  * @author blvd
  */
 public class GameMenuView extends View {
+    
+    Map map = FireSwamp.getCurrentGame().getGameMap();
+    Location playerLocation = FireSwamp.getCurrentGame().getGameMap().getPlayerLocation();
+    MapController mc = new MapController();
     
     public GameMenuView() {
         super("\nGame Menu"
@@ -34,29 +42,33 @@ public class GameMenuView extends View {
 
     }
 
+    @Override
     public boolean doAction(String selection) {
 
         char charSel = selection.charAt(0);
-        
         MapController mc = new MapController();
-        MapMenuView mmv = new MapMenuView();
-        Map map = new Map();
-        map.init();
-        //SensesController sc = new SensesController();
-        //InventoryView iv = new InventoryView();
-        //InventoryController ic = new InventoryController();
+        
+
         switch (charSel) {
             case 'W':
-                //this.doAction("W");
+                if(this.isValidMove(playerLocation.getLocationRow() - 1, playerLocation.getLocationColumn()) == true) {
+                    this.movePlayer(-1, 0);
+                }
                 break;
             case 'S':
-                //this.doAction("S");
+                if(this.isValidMove(playerLocation.getLocationRow() + 1, playerLocation.getLocationColumn()) == true) {
+                    this.movePlayer(1, 0);
+                }          
                 break;
             case 'A':
-                //this.doAction("A");
+                if(this.isValidMove(playerLocation.getLocationRow(), playerLocation.getLocationColumn() - 1) == true) {
+                    this.movePlayer(0, -1);
+                }
                 break;
             case 'D':
-                //this.doAction("D");
+                if(this.isValidMove(playerLocation.getLocationRow(), playerLocation.getLocationColumn() + 1) == true) {
+                    this.movePlayer(0, 1);
+                }
                 break;
             case 'V':
                 this.displayMap();
@@ -77,8 +89,8 @@ public class GameMenuView extends View {
                 //Insert reference to Take Item Method()
                 break;
             case 'H':
-                HelpMenuView hmv = new HelpMenuView();
-                hmv.display();
+                //HelpMenuView hmv = new HelpMenuView();
+                //hmv.display();
                 break;
             case 'G':
                 //Insert reference to Save Game Method();
@@ -92,7 +104,44 @@ public class GameMenuView extends View {
         return false;
     }
     
-    //Displays the map
+    //Check to see if an exception should be thrown on the map movement
+    private boolean isValidMove(int row, int col) {
+        try {
+                if (mc.checkMove(row, col) == false){
+                    throw new MapControllerException("That will move you off the map, please try again!");
+                }
+                } catch(MapControllerException mce) {
+                        System.out.println(mce.getResponse());
+                        return false;
+                }
+        return true;
+            }
+    
+    //Moves the player according to the direction they choose
+    private void movePlayer(int row, int col) {
+        Map map = FireSwamp.getCurrentGame().getGameMap();
+        Location[][] location = map.getMatrix();
+        //Location[][] dangerLocations = map.getMatrix();
+        
+        //Assign moved location a variable
+        row = playerLocation.getLocationRow() + row;
+        col = playerLocation.getLocationColumn() + col;
+        
+        //Save & set the previous danger
+        //int currLocal = dangerLocations[row+1][col].getLocationRow();
+        //LocationType currDanger = dangerLocations[playerLocation.getLocationRow()][playerLocation.getLocationColumn()].getLocationType();
+        
+        //Display the location you moved to
+        playerLocation.setLocationRow(row);
+        playerLocation.setLocationColumn(col);
+        System.out.println("You are now at " + row + "," + col);
+        
+        location[row][col].setLocationType(LocationType.PLAYERLOCATION);
+        //location[currLocal][col].setLocationType(currDanger);
+        
+        this.displayMap();
+    }
+    
     private void displayMap() {
         
         System.out.println("Map Index: \n\n"

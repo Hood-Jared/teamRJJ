@@ -19,16 +19,19 @@ public class MapControllerTest {
     }
 
     /**
-     * Test of checkMoveNorth method, of class MapController.
+     * Test of checkMove method, of class MapController.
      */
     @Test
-    public void testCheckMoveNorth() {
-        System.out.println("checkMoveNorth");
-        Location location = new Location();
-        
+    public void testCheckMove() {
+        System.out.println("checkMove");
+        int row = 3;
+        int col = 2;
         MapController instance = new MapController();
-        instance.checkMoveNorth(location);
+        boolean expResult = true;
+        boolean result = instance.checkMove(row, col);
+        assertEquals(expResult, result);
     }
+
 
     
     

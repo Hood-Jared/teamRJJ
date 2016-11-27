@@ -14,12 +14,12 @@ package FireSwamp;
 //import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.view.StartProgramView;
 import byui.cit260.fireswamp.Game;
-import byui.cit260.fireswamp.Location;
+//import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Player;
 import byui.cit260.fireswamp.controller.MapController;
-import exceptions.MapControllerException;
+import byui.cit260.fireswamp.exceptions.MapControllerException;
 //import byui.cit260.fireswamp.view.FireSpoutsView;
-//import byui.cit260.fireswamp.view.GameMenuView;
+import byui.cit260.fireswamp.view.GameMenuView;
 //import byui.cit260.fireswamp.view.WelcomeView;
 //import byui.cit260.fireswamp.view.MainMenuView;
 //import byui.cit260.fireswamp.view.HelpMenuView;
@@ -33,11 +33,14 @@ public class FireSwamp {
 
     public static void main(String[] args) throws MapControllerException{
         
-          MapController mc = new MapController();
-          mc.checkMoveNorth(-1);
+//        GameMenuView gmv = new GameMenuView();
+//        gmv.doAction("W");
         
-//        StartProgramView startProgramView = new StartProgramView();
-//        startProgramView.display();
+//        MapController mc = new MapController();
+//        mc.checkMoveNorth(-1);
+//        
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.display();
          
                 
     }

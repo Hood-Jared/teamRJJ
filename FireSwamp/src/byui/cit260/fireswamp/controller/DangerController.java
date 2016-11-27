@@ -5,6 +5,8 @@
  */
 package byui.cit260.fireswamp.controller;
 
+import byui.cit260.fireswamp.exceptions.DangerControllerException;
+
 /**
  *
  * @author ryahh, jared, justin
@@ -12,18 +14,20 @@ package byui.cit260.fireswamp.controller;
 public class DangerController {
 
     //Calculate the circumference of a circle
-    public double calcLightningSand(double diameter) {
-        if (diameter <= 0 || diameter > 10) {
-            return -1;
-        }
+    public double calcLightningSand(double diameter) throws DangerControllerException {
         double circumference = diameter * Math.PI / 2;
+
+            if (diameter <= 0 || diameter > 10) {
+                throw new DangerControllerException("You miscalculated and ended up sinking into the Lightning Sand. "
+                        + "Better luck next time!");
+            }
         return circumference;
-    }
+}
     
     //Calculate the area of a triangle A=h*b/2
-    public double calcFireSpouts(int height, int base){
+    public double calcFireSpouts(int height, int base) throws DangerControllerException {
         if (height <= 0 || base <= 0) {
-            return -1;
+            throw new DangerControllerException("You cannot have a negative height or base. Try again!");
         }
         double triangleArea = height * base / 2;
         return triangleArea;
@@ -35,10 +39,10 @@ public class DangerController {
     * player must return the next number in the series.
     */
               
-    public int calcRous(int firstNumber) {
+    public int calcRous(int firstNumber) throws DangerControllerException {
         int answerRous = firstNumber * 2; 
         if (firstNumber != answerRous) {
-        return -1;
+            throw new DangerControllerException("You did not calculate correctly. Better Luck next time!");
     } 
         
         else return answerRous;

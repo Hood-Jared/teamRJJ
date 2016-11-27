@@ -23,11 +23,11 @@ public class Location implements Serializable {
     
     
     
-    // default constructor function
-    //public LocationType Location() {
-        //LocationType[] v = locationType.values();
-        //return v[r.nextInt(4)];
-    //}
+//     default constructor function
+//    public LocationType Location() {
+//        LocationType[] v = locationType.values();
+//        return v[r.nextInt(4)];
+//    }
 
     public int getLocationRow() {
         return locationRow;

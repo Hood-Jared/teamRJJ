@@ -3,19 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package exceptions;
+package byui.cit260.fireswamp.exceptions;
 
 /**
  *
  * @author blvd
  */
 public class MapControllerException extends Exception {
+    private String i;
 
     public MapControllerException() {
     }
 
     public MapControllerException(String message) {
-        super(message);
+        //super(message);
+        i = message;
     }
 
     public MapControllerException(String message, Throwable cause) {
@@ -29,8 +31,8 @@ public class MapControllerException extends Exception {
     public MapControllerException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-  
-    public String exception(){
-        return "You can't have a negative number";
+    
+    public String getResponse(){
+        return i;
     }
 }

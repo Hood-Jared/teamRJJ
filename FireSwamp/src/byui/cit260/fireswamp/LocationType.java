@@ -10,7 +10,7 @@ package byui.cit260.fireswamp;
  * @author ryahh
  */
 public enum LocationType {
-    NONE, FLAMESPURT, ROUS, LIGHTNINGSAND, START, END
+    NONE, FLAMESPURT, ROUS, LIGHTNINGSAND, END, START, PLAYERLOCATION
 }
 
 
