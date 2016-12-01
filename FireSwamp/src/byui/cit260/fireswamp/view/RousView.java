@@ -6,6 +6,8 @@
 package byui.cit260.fireswamp.view;
 
 import byui.cit260.fireswamp.controller.DangerController;
+import byui.cit260.fireswamp.exceptions.DangerControllerException;
+import java.io.IOException;
 import java.util.Random;
 /**
  *
@@ -20,7 +22,7 @@ public class RousView extends View {
     @Override
     public void display() {
         
-        System.out.println("\nYou've encountered a group of Rabid ROUS!"
+        console.println("\nYou've encountered a group of Rabid ROUS!"
                 + "\n"
                 + "\nTo get past the First ROUS you must know the sequence they."
                 + "\nwill attack. " + firstNumber + " is your first clue."
@@ -33,21 +35,24 @@ public class RousView extends View {
           
         //collect input
         String input = getInput();
-        
-        //validate input
-        boolean isCorrect = doAction(input);
-        
-        //present user with results
-        if(isCorrect) {
-            System.out.println("You outsmarted the Rodents!");
-        } else {
-            System.out.println("You need to rethink your answer, hopefully you have enough limbs left.");
+        try {
+            //validate input
+            boolean isCorrect = doAction(input);
+
+            //present user with results
+            if(isCorrect) {
+                console.println("You outsmarted the Rodents!");
+            } else {
+                console.println("You need to rethink your answer, hopefully you have enough limbs left.");
+            }
+        } catch (DangerControllerException dce) {
+            ErrorView.display("display()/RousView", dce.getMessage());
         }
                       
     }
       
     @Override
-    public boolean doAction(String value){
+    public boolean doAction(String value) throws DangerControllerException{
         
         double input = Integer.parseInt(value);
         

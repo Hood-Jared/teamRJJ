@@ -98,7 +98,7 @@ public class GameMenuView extends View {
             case 'Q':
                 return true;
             default:
-                System.out.println("Invalid Input - Please try again.");
+                console.println("Invalid Input - Please try again.");
                 break;
         }
         return false;
@@ -111,7 +111,7 @@ public class GameMenuView extends View {
                     throw new MapControllerException("That will move you off the map, please try again!");
                 }
                 } catch(MapControllerException mce) {
-                        System.out.println(mce.getResponse());
+                        ErrorView.display("GameMenuView", mce.getResponse());
                         return false;
                 }
         return true;
@@ -134,7 +134,7 @@ public class GameMenuView extends View {
         //Display the location you moved to
         playerLocation.setLocationRow(row);
         playerLocation.setLocationColumn(col);
-        System.out.println("You are now at " + row + "," + col);
+        console.println("You are now at " + row + "," + col);
         
         location[row][col].setLocationType(LocationType.PLAYERLOCATION);
         //location[currLocal][col].setLocationType(currDanger);
@@ -144,7 +144,7 @@ public class GameMenuView extends View {
     
     private void displayMap() {
         
-        System.out.println("Map Index: \n\n"
+        console.println("Map Index: \n\n"
                 + "N: No Dangers"
                 + "\nF: Fire Spout"
                 + "\nR: ROUS Rats of Unusual Size"
@@ -158,12 +158,12 @@ public class GameMenuView extends View {
         for(int row = 0; row < Map.ROWS; row++) {
             for(int col = 0; col < Map.COLUMNS; col++) {
                 char locationType = map.getLocationAt(row, col).getLocationType().toString().charAt(0);
-                System.out.print(locationType + "\t");
+                console.print(locationType + "\t");
                 
             }
-            System.out.println("");
-            System.out.println("");
-            System.out.println("");
+            console.println("");
+            console.println("");
+            console.println("");
         }
     }
     

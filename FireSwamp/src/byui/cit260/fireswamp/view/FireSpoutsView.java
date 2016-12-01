@@ -6,6 +6,8 @@
 package byui.cit260.fireswamp.view;
 
 import byui.cit260.fireswamp.controller.DangerController;
+import byui.cit260.fireswamp.exceptions.DangerControllerException;
+import java.io.IOException;
 import java.util.Random;
 //import java.util.Scanner;
 
@@ -24,7 +26,7 @@ public class FireSpoutsView extends View {
     public void display() {
         
         //Display problem to user
-        System.out.println("\nYou've encountered a fire spout!"
+        console.println("\nYou've encountered a fire spout!"
                 + "\n"
                 + "\nTo get past the Fire Spout you must jump over it."
                 + "\nYou notice that the fire is " + height + " ft tall."
@@ -41,20 +43,25 @@ public class FireSpoutsView extends View {
         //collect input
         String input = getInput();
         
-        //validate input
-        boolean isCorrect = doAction(input);
         
-        //present user with results
-        if(isCorrect) {
-            System.out.println("You made it over the Fire Spout!");
-        } else {
-            System.out.println("You didn't jump high enough! The Fire Spout caught you in midair and you burned!");
+        try {
+            //validate input
+            boolean isCorrect = doAction(input);
+        
+            //present user with results
+            if(isCorrect) {
+                console.println("You made it over the Fire Spout!");                
+            }
+            else throw new DangerControllerException("You didn't jump high enough! "
+                    + "The Fire Spout caught you in midair and you burned!");
+        } catch (DangerControllerException dce) {
+            console.println(dce.getMessage());
         }
                       
     }
       
     @Override
-    public boolean doAction(String value){
+    public boolean doAction(String value) throws DangerControllerException {
         
         double input = Integer.parseInt(value);
         

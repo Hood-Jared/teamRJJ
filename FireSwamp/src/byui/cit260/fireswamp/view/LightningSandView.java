@@ -6,8 +6,10 @@
 package byui.cit260.fireswamp.view;
 
 import byui.cit260.fireswamp.controller.DangerController;
+import byui.cit260.fireswamp.exceptions.DangerControllerException;
+import java.io.IOException;
 import java.util.Random;
-import java.util.Scanner;
+
 
 /**
  *
@@ -25,7 +27,7 @@ public class LightningSandView extends View {
         diameter = r.nextInt(5) + 5;
         
         //Display problem to user
-        System.out.println("You've encountered lightning sand."
+        console.println("You've encountered lightning sand."
                 + "\nYou are standing at the edge."
                 + "... the diameter is " + diameter +" ft."
                 + "How far must you walk to walk along the edge to the other side");
@@ -35,41 +37,50 @@ public class LightningSandView extends View {
         String input = getInput();
           
         //validate input
-        boolean isCorrect= doAction(input);
+        try {
+            boolean isCorrect= doAction(input);
+            
+            if(isCorrect) {
+            console.println("You made it across");
+            } else {
+                System.err.println("You fell in");
+            }
+        } catch (DangerControllerException dce) {
+            ErrorView.display("display/LightningSandView", dce.getMessage());
+        }
                  
         //present user with results
-        if(isCorrect) {
-            System.out.println("You made it across");
-        } else {
-            System.err.println("You fell in");
-        }
+        
                       
     }
     @Override
-    public String getInput(){      
-        Scanner in = new Scanner(System.in);
-        String input = " ";
-        boolean validInput = false;
+    public String getInput(){   
+        boolean valid = false;
+        String selection = null;
         
-        while (!validInput){
+        // while a valid name has not been retrieved
+        while (!valid){
             
-            input = in.nextLine();
-            input = input.trim();
-            input = input.toUpperCase();
-            
-            
-            try{
-                Double.parseDouble(input);
-                validInput = true;
-            }catch (Exception e){
-                System.out.println("\nInvalid value: You must enter a number.");
+            try {
+                selection = keyboard.readLine();
+                selection = selection.trim().toUpperCase();                
+            } catch (IOException ex) {
+                ErrorView.display("LightningSandView", ex.getMessage());
             }
+
+            if (selection.length() < 1) {
+                console.println("Invalid value: You must enter a number.");
+                continue;
+            }
+            
+            break;
         }
         
-        return input;
+        return selection;
     }
-        
-    public boolean doAction(String value){
+    
+    @Override
+    public boolean doAction(String value) throws DangerControllerException{
         
         double input = Double.parseDouble(value);
         

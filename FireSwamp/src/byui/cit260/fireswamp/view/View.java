@@ -5,7 +5,12 @@
  */
 package byui.cit260.fireswamp.view;
 
-import java.util.Scanner;
+import byui.cit260.fireswamp.exceptions.DangerControllerException;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +19,8 @@ import java.util.Scanner;
 public abstract class View implements InterfaceView {
     
     protected String displayMessage;
+    protected final BufferedReader keyboard = FireSwamp.FireSwamp.getInFile();
+    protected final PrintWriter console = FireSwamp.FireSwamp.getOutFile();
     
     public View(){
         
@@ -28,34 +35,40 @@ public abstract class View implements InterfaceView {
         boolean done = false;
         
         do {
-            System.out.println("\n" + this.displayMessage);
+            console.println("\n" + this.displayMessage);
             
             String value = this.getInput();
                                     
-            done = this.doAction(value);
+            try {
+                done = this.doAction(value);
+            } catch (DangerControllerException ex) {
+                ErrorView.display("display/View", ex.getMessage());
+            }
         } while (!done);
     }
     
     @Override
     public String getInput() {
+        boolean valid = false;
+        String selection = null;
         
-        Scanner in = new Scanner(System.in);
-        String input = "";
-        boolean validInput = false;
-        
-        while (!validInput){
+        // while a valid name has not been retrieved
+        while (!valid){
             
-            input = in.nextLine();
-            input = input.trim();
-            input = input.toUpperCase();
+            try {
+                selection = keyboard.readLine();
+            } catch (IOException ex) {
+                ErrorView.display("getInput/View", "Invalid selection, Try again");
+            }
+            selection = selection.trim().toUpperCase();
             
-            if (input.length() < 1 ){
-                System.out.println("\nInvalid value: You must enter a character.");
+            if (selection.length() < 1 ){ // blank value entered
+                console.println("\n*** Invalid selection *** Try again");
             } else{
-                validInput = true;
+                valid = true;
             }
         }
         
-        return input;
+        return selection;
     }
 }

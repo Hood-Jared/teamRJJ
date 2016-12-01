@@ -32,7 +32,7 @@ public class MapMenuView extends View {
             case 'Q':
                 return true;
             default:
-                System.out.println("Invalid Input - Please try again.");
+                console.println("Invalid Input - Please try again.");
                 break;
         }
         return false;

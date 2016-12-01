@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author justin
  */
-public class HelpMenuView {
+public class HelpMenuView extends View {
 
     private final String menu = 
             "\n****Help Menu****"
@@ -25,7 +25,7 @@ public class HelpMenuView {
 
         boolean done = false;
         do {
-            System.out.println("\n" + this.menu);
+            console.println("\n" + this.menu);
 
             String value = this.getInput();
 
@@ -46,7 +46,7 @@ public class HelpMenuView {
             input = input.toUpperCase();
 
             if (input.length() < 1) {
-                System.out.println("\nInvalid value: You must enter a character.");
+                console.println("\nInvalid value: You must enter a character.");
             } else {
                 validInput = true;
             }
@@ -74,14 +74,14 @@ public class HelpMenuView {
             case 'B':
                 return true;
             default:
-                System.out.println("Invalid Input - Please try again.");
+                console.println("Invalid Input - Please try again.");
                 break;
         }
         return false;
     }
     
     private void helpInventory() {
-        System.out.println("\nWelcome to the Inventory Help Screen"
+        console.println("\nWelcome to the Inventory Help Screen"
               + "\n"
               + "\nYour inventory is necessary to help you survive"
               + "\nthe dangers of the Fire Swamp! Should you run"
@@ -95,7 +95,7 @@ public class HelpMenuView {
     }
     
     private void helpClues() {
-        System.out.println("\n\nAt times there may be clues to help you."
+        console.println("\n\nAt times there may be clues to help you."
                 + "\n"
                 + "\nThese clues are priimarily contained within the"
                 + "\nmap view. You can only see the dangers that are"
@@ -106,7 +106,7 @@ public class HelpMenuView {
     }
     
     private void helpDangers() {
-        System.out.println("\nThere are three dangers you should be aware of"
+        console.println("\nThere are three dangers you should be aware of"
                 + "\n"
                 + "\nROUS's: These are Rats of Unusual Size. They are"
                 + "\nmassive rats about the size of a dog. In order to get"
@@ -114,16 +114,16 @@ public class HelpMenuView {
     }
     
     private void helpMovement() {
-        System.out.println("\nTo move on the map you will use particular keys"
+        console.println("\nTo move on the map you will use particular keys"
                 + "\n"
                 + "\nThese keys will move you north, south, east, or west."
                 + "\nBe careful which way you move because if you run into"
                 + "\na danger it may result in your death!");
     }
 
-    void displayHelpMenuView() {
-        HelpMenuView hmv = new HelpMenuView();
-        hmv.displayHelpMenuView();
-    }
+//    void displayHelpMenuView() {
+//        HelpMenuView hmv = new HelpMenuView();
+//        hmv.displayHelpMenuView();
+//    }
     
 }

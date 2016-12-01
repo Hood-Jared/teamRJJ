@@ -5,6 +5,7 @@
  */
 package byui.cit260.fireswamp;
 
+import byui.cit260.fireswamp.view.View;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.Random;
@@ -12,7 +13,7 @@ import java.util.Random;
  *
  * @author blvd
  */
-public class Items implements Serializable{
+public class Items extends View {
     ListProcessing lp = new ListProcessing();
     Random r = new Random();
     
@@ -53,16 +54,16 @@ public class Items implements Serializable{
         itemData[4] = total;
                 
         //print the values in the array
-        System.out.println("\n\nYou purchased " + itemData[0] + " rope(s)." + "\nYou purchased " + itemData[1] + " bucket(s) for water.");
+        console.println("\n\nYou purchased " + itemData[0] + " rope(s)." + "\nYou purchased " + itemData[1] + " bucket(s) for water.");
         //Output the cost of each rope and bucket
-        System.out.println("Each rope costs $" + itemData[2] + ".00" + "\nEach bucket costs $" + itemData[3] + ".00");
+        console.println("Each rope costs $" + itemData[2] + ".00" + "\nEach bucket costs $" + itemData[3] + ".00");
         //Output the cost of rope and bucket together
-        System.out.println("Your total cost is $" + itemData[4] + ".00");
+        console.println("Your total cost is $" + itemData[4] + ".00");
         
         //Sort & print array lowest to greatest
         lp.srt(prices);
         for(int v : prices) {
-            System.out.print(v + ", ");
+            console.print(v + ", ");
         }
         
         
@@ -145,6 +146,11 @@ public class Items implements Serializable{
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
  

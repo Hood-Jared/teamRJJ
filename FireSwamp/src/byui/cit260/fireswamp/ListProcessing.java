@@ -5,11 +5,13 @@
  */
 package byui.cit260.fireswamp;
 
+import byui.cit260.fireswamp.view.View;
+
 /**
  *
  * @author blvd
  */
-public class ListProcessing {
+public class ListProcessing extends View{
     //This class will help manipulate and sort arrays
     
     int total = 0;
@@ -72,7 +74,7 @@ public class ListProcessing {
      *
      * @param array
      */
-    public static int[] srt(int array[]) {
+    public int[] srt(int array[]) {
         int n = array.length;
         int k;
         for (int m = n; m >= 0; m--) {
@@ -87,7 +89,7 @@ public class ListProcessing {
         return array;
     }
 
-    private static void swapNumbers(int i, int j, int[] array) {
+    private void swapNumbers(int i, int j, int[] array) {
   
         int temp;
         temp = array[i];
@@ -95,10 +97,15 @@ public class ListProcessing {
         array[j] = temp;
     }
     
-    public static void printNumbers(int[] array){
+    public void printNumbers(int[] array){
         for(int a : array) {
-            System.out.print(a + ", ");
+            console.print(a + ", ");
         }
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

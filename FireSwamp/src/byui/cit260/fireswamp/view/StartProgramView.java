@@ -5,15 +5,24 @@
  */
 package byui.cit260.fireswamp.view;
 
+import byui.cit260.fireswamp.exceptions.DangerControllerException;
+import byui.cit260.fireswamp.exceptions.MapControllerException;
+import java.io.IOException;
+
 /**
  *
  * @author ryahh
  */
 public class StartProgramView {
 
-    public void display() {
-        WelcomeView wv = new WelcomeView();
-        wv.displayStartProgramView();
+    public void display() throws MapControllerException, IOException{
+        
+        try {
+            WelcomeView wv = new WelcomeView();
+            wv.displayStartProgramView();
+        } catch (DangerControllerException | IOException dce) {
+            ErrorView.display("StartProgramView", dce.getMessage());
+        }
     }
     
 }

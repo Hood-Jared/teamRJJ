@@ -9,6 +9,12 @@ import FireSwamp.FireSwamp;
 import byui.cit260.fireswamp.Game;
 import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.Player;
+import byui.cit260.fireswamp.exceptions.GameControlException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -42,5 +48,30 @@ public class GameControl {
         FireSwamp.setPlayer(player);
         
         return player;
+    }
+    
+    public static void saveGame(Game game, String filepath) throws GameControlException {
+        try(FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            
+            output.writeObject(game); // write the game object out to file
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    
+    public static void getSavedGame(String filepath) throws GameControlException{
+        Game game = null;
+        
+        try(FileInputStream fips = new FileInputStream(filepath)) {
+            ObjectInputStream input = new ObjectInputStream(fips);
+            
+            game = (Game) input.readObject(); //read the game object from file
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+        
+        // close the output file
+        FireSwamp.setCurrentGame(game);
     }
 }

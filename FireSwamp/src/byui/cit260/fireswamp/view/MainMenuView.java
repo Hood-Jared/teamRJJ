@@ -17,7 +17,8 @@ public class MainMenuView extends View {
     public MainMenuView() {
         super("\nMAIN MENU"
             + "\nN - Start New Game"
-            + "\nL - Load Saved Game"
+            + "\nS - Save Game"
+            + "\nL - Start Saved Game"
             + "\nH - Help Menu"
             + "\nQ - Quit"
             + "\n");
@@ -31,36 +32,72 @@ public class MainMenuView extends View {
 
         switch (charSel) {
             case 'N':
-                startNewGame();
+                this.startNewGame();
+                break;
+            case 'S':
+                this.saveGame();
                 break;
             case 'L':
-                loadGame();
+                this.startSavedGame();
                 break;
             case 'H':
-                helpMenu();
+                this.helpMenu();
                 break;
             case 'Q':
                 return true;
             default:
-                System.out.println("Invalid Input - Please try again.");
+                console.println("Invalid Input - Please try again.");
                 break;
         }
         return false;
     }
 
     private void startNewGame() {
-        GameControl gc = new GameControl();
-        gc.createNewGame(FireSwamp.getPlayer());
+        try {
+            GameControl gc = new GameControl();
+            gc.createNewGame(FireSwamp.getPlayer());
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.display();
+        } catch (Exception e) {
+            ErrorView.display("startNewGame/MainMenuView", e.getMessage());
+        }
+    }
+    
+    private void saveGame() {
+        this.console.println("\n\nEnter the file path for the file where the game"
+                + " is to be saved.");
+        
+        String filePath = this.getInput();
+        
+        try {
+            // save the game to the specified file
+            GameControl.saveGame(FireSwamp.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("saveGame/MainMenuView", ex.getMessage());
+        }
+    }
+
+    private void startSavedGame() {
+        
+        this.console.println("\n\nEnter the file path for the file where the game"
+                + " was saved.");
+        
+        String filePath = this.getInput();
+
+        try {
+            // start a saved game
+            GameControl.getSavedGame(filePath);    
+        } catch (Exception e) {
+            ErrorView.display("startSavedGame/MainMenuView", e.getMessage());
+        }
+
+        
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
 
-    private void loadGame() {
-        System.out.println("LOAD GAME CALLED");
-    }
-
     private void helpMenu() {
-        System.out.println("HELP MENU CALLED");
+        console.println("HELP MENU CALLED");
         HelpMenuView display = new HelpMenuView();
         display.display();
     }

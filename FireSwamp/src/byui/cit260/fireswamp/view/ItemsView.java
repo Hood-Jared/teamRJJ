@@ -10,14 +10,14 @@ import byui.cit260.fireswamp.Items;
  *
  * @author blvd
  */
-public class ItemsView {
+public class ItemsView extends View {
     
     
     
     public ItemsView() {
         Items items = new Items();
         
-        System.out.println("\nThis is your current inventory"
+        console.println("\nThis is your current inventory"
                 + "\n"
                 + "\nRope(s)\t\t\t" + items.getRope()
                 + "\nBucket(s) of Water\t" + items.getBucketOfWater()
@@ -25,7 +25,12 @@ public class ItemsView {
                 + "\nH - Help Menu"
                 + "\nB - Go back");
         
-        System.out.println("\n" + items.getRope() + "\n" + items.getBucketOfWater());
+        console.println("\n" + items.getRope() + "\n" + items.getBucketOfWater());
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

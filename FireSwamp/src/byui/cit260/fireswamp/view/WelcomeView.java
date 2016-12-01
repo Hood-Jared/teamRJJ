@@ -5,18 +5,20 @@
  */
 package byui.cit260.fireswamp.view;
 
+import byui.cit260.fireswamp.exceptions.DangerControllerException;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
  *
  * @author ryahh & jared
  */
-public class WelcomeView {
+public class WelcomeView extends View {
 
     public WelcomeView() {
         
         
-        System.out.println("\n*         WELCOME TO THE FIRESWAMP         *"
+        console.println("\n*         WELCOME TO THE FIRESWAMP         *"
                 +"\n*_*_*_*_*_*_*_*_*_*_*_*_*__*_*_*_*_*_*_*_*_*"
                 +"\n*                                          *"
                 +"\n*          Enter at your own risk!         *"
@@ -38,7 +40,7 @@ public class WelcomeView {
 
     }
     
-    public void displayStartProgramView(){
+    public void displayStartProgramView() throws DangerControllerException, IOException{
         
         displayBanner();
         
@@ -50,33 +52,37 @@ public class WelcomeView {
         mmv.display();
     }
     
-    private String getPlayerName(){
+    private String getPlayerName() throws IOException{
         
-        Scanner in = new Scanner(System.in);
         boolean isValidName = false;
         String name = "";
         
-        System.out.println("Please enter your name: ");
+        console.println("Please enter your name: ");
         
         while(!isValidName){
             String input = "";
-            input = in.nextLine();
+            input = keyboard.readLine();
             
             if (input != null && input.length() >= 2){
                 isValidName = true;
                 name = input;
                 
             } else {
-                System.out.println("Input is invalid - name must be at least 2 characters");
+                console.println("Input is invalid - name must be at least 2 characters");
             }         
         }
         return name;
     }   
     
     private void displayWelcome(String playerName){
-        System.out.println("============================");
-        System.out.println("Welcome " + playerName + ".");
-        System.out.println("Enjoy the game!");
-        System.out.println("============================");
+        console.println("============================");
+        console.println("Welcome " + playerName + ".");
+        console.println("Enjoy the game!");
+        console.println("============================");
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        return true;
     }
 }
