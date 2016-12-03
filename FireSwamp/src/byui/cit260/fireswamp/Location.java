@@ -20,14 +20,6 @@ public class Location implements Serializable {
     private String locationDescription;
     private LocationType locationType;
     Random r = new Random();
-    
-    
-    
-//     default constructor function
-//    public LocationType Location() {
-//        LocationType[] v = locationType.values();
-//        return v[r.nextInt(4)];
-//    }
 
     public int getLocationRow() {
         return locationRow;

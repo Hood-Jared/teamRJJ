@@ -9,18 +9,24 @@ import FireSwamp.FireSwamp;
 import byui.cit260.fireswamp.Game;
 import byui.cit260.fireswamp.Map;
 import byui.cit260.fireswamp.Player;
+import byui.cit260.fireswamp.exceptions.DangerControllerException;
 import byui.cit260.fireswamp.exceptions.GameControlException;
+import byui.cit260.fireswamp.view.ErrorView;
+import byui.cit260.fireswamp.view.GameMenuView;
+import byui.cit260.fireswamp.view.View;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import static java.lang.System.console;
 
 /**
  *
  * @author ryahh
  */
-public class GameControl {
+public class GameControl extends View {
     
     public void createNewGame(Player player) {
         
@@ -74,4 +80,12 @@ public class GameControl {
         // close the output file
         FireSwamp.setCurrentGame(game);
     }
+    
+    
+
+    @Override
+    public boolean doAction(String value) throws DangerControllerException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
+

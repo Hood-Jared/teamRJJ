@@ -12,6 +12,11 @@ import byui.cit260.fireswamp.controller.MapController;
 import byui.cit260.fireswamp.exceptions.*;
 import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Game;
+import byui.cit260.fireswamp.controller.GameControl;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -71,7 +76,16 @@ public class GameMenuView extends View {
                 }
                 break;
             case 'V':
-                this.displayMap();
+                console.println("Would you like to save your map to a txt file?");
+                switch (getInput().charAt(0)) {
+                    case 'Y':
+                        this.printMapToFile();
+                        this.displayMap();
+                        break;
+                    case 'N':
+                        this.displayMap();
+                        break;
+                    }
                 break;
             case 'L':
                 //Insert reference to Look Method()
@@ -134,38 +148,108 @@ public class GameMenuView extends View {
         //Display the location you moved to
         playerLocation.setLocationRow(row);
         playerLocation.setLocationColumn(col);
-        console.println("You are now at " + row + "," + col);
         
         location[row][col].setLocationType(LocationType.PLAYERLOCATION);
         //location[currLocal][col].setLocationType(currDanger);
-        
         this.displayMap();
+        console.println("You are now at " + row + "," + col);
     }
     
     private void displayMap() {
+        try {
+            console.println("Map Index: \n\n"
+                    + "N: No Dangers"
+                    + "\nF: Fire Spout"
+                    + "\nR: ROUS Rats of Unusual Size"
+                    + "\nL: Lightning Sand"
+                    + "\nS: Your Start position"
+                    + "\nE: Your End position"
+                    + "\n");
         
-        console.println("Map Index: \n\n"
-                + "N: No Dangers"
-                + "\nF: Fire Spout"
-                + "\nR: ROUS Rats of Unusual Size"
-                + "\nL: Lightning Sand"
-                + "\nS: Your Start position"
-                + "\nE: Your End position"
-                + "\n");
-        
-        Map map = FireSwamp.getCurrentGame().getGameMap();
-        
-        for(int row = 0; row < Map.ROWS; row++) {
-            for(int col = 0; col < Map.COLUMNS; col++) {
-                char locationType = map.getLocationAt(row, col).getLocationType().toString().charAt(0);
-                console.print(locationType + "\t");
-                
-            }
-            console.println("");
-            console.println("");
-            console.println("");
+            Map map = FireSwamp.getCurrentGame().getGameMap();
+            
+                for(int row = 0; row < Map.ROWS; row++) {
+                    for(int col = 0; col < Map.COLUMNS; col++) {
+                        char locationType = map.getLocationAt(row, col).getLocationType().toString().charAt(0);
+                        console.print(locationType + "\t");
+                    }
+                    console.println("");
+                    console.println("");
+                    console.println("");
+                }  
+            
+            //console.println("You are at: " + map.getMapEntrance().getLocationRow() + ", " + map.getMapEntrance().getLocationColumn());
+        } catch (Exception e) {
+            ErrorView.display("displayMap/GAMEMENUVIEW", e.getMessage());
         }
     }
     
+    public void printMapToFile(){
+        boolean valid = false;
+        do {
+            try {
+                    console.println("\n\nEnter the file path where you would like to save this map report\n");
+                    String selection = keyboard.readLine();
+
+                    PrintWriter MapLog = new PrintWriter(selection);
+                    Map map = FireSwamp.getCurrentGame().getGameMap();
+
+                MapLog.printf("%15s%1s", "Your Map", "\n\n");
+                MapLog.print("=====================\n");
+
+                    for(int row = 0; row < Map.ROWS; row++) {
+                        for(int col = 0; col < Map.COLUMNS; col++) {
+                            char locationType = map.getLocationAt(row, col).getLocationType().toString().charAt(0);
+
+                    // print map to file
+                    MapLog.printf("%-5c", locationType);
+                        }
+                        MapLog.println("");
+                    }
+                MapLog.println(this.dangersDescription());
+
+                //flush buffer and close file
+                MapLog.flush();
+                MapLog.close();
+
+                // tell the user the file was saved successfully
+                console.println("\nFile saved successfully as: " + selection);
+                valid = true;
+                Thread.sleep(3000);
+            } catch (Exception e) {
+                ErrorView.display("printToFile/GAMEMENUVIEW", e.getMessage());
+            } 
+        } while (!valid);
+    }
     
+    public String dangersDescription(){
+        return "\nMap Characteristics:"
+                + "\n1. All the dangers on the map are randomly generated"
+                + "\n   This means you will face a different set of dangers"
+                + "\n   each time you play"
+                + "\n2. The start location of the map is randomly generated"
+                + "\n   on the bottom row. This means you will always start"
+                + "\n   on the bottom row but not always in the same column"
+                + "\n3. The end location of the map is randomly generated"
+                + "\n   on the top row. This means you will always finish"
+                + "\n   on the top row but not always in the same column"
+                + "\n"
+                + "\nThere are three dangers you should be aware of"
+                + "\n"
+                + "\nROUS': These are Rodents of Unusual Size. They are"
+                + "\nmassive rodents about the size of a dog. In order to get"
+                + "\naway from them you will need to be quick on your feet!"
+                + "\n"
+                + "\nLightning Sand: This is basically quick sand but much,"
+                + "\nmuch faster. One step and not only will instantly begin"
+                + "\nto such you in but you'll be engulfed in the sand as "
+                + "\nfast as gravity can pull you down!"
+                + "\n"
+                + "\nFire Spouts: These are gas spewing holes in the ground"
+                + "\nmuch like a geyser except these don't spout anything so"
+                + "\nharmless as water. Be careful you don't jump right into"
+                + "\nspurt of flame!";
+    }
 }
+
+

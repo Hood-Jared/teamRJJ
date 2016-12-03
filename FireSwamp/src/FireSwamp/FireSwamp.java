@@ -16,15 +16,16 @@ import byui.cit260.fireswamp.view.StartProgramView;
 import byui.cit260.fireswamp.Game;
 //import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Player;
+import byui.cit260.fireswamp.controller.GameControl;
 //import byui.cit260.fireswamp.controller.MapController;
-import byui.cit260.fireswamp.exceptions.MapControllerException;
+//import byui.cit260.fireswamp.exceptions.MapControllerException;
 import byui.cit260.fireswamp.view.ErrorView;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 //import byui.cit260.fireswamp.view.FireSpoutsView;
 //import byui.cit260.fireswamp.view.GameMenuView;
 //import byui.cit260.fireswamp.view.WelcomeView;
@@ -40,8 +41,11 @@ public class FireSwamp {
     
     public static void main(String[] args) {
         
+//        GameControl gc = new GameControl();
+//        gc.printToFile();
+        
 //        GameMenuView gmv = new GameMenuView();
-//        gmv.doAction("W");
+//        gmv.doAction("v");
         
 //        MapController mc = new MapController();
 //        mc.checkMoveNorth(-1);
@@ -91,7 +95,7 @@ public class FireSwamp {
     // create error log file variable
     private static PrintWriter logFile = null;
     
-
+    
     
     public static Game getCurrentGame() {
         return currentGame;

@@ -23,35 +23,5 @@ public class MapController {
             return false;
         }
         return true;
-    }
-    
-//    public boolean checkMoveNorth(int row) throws MapControllerException {
-//            if (row < 0 || row > 4){
-//                return false;
-//            }
-//            else return true;
-//    }
-//    
-//    public boolean checkMoveEast(Location location){
-//            if (location.getLocationColumn()< 0){
-//                return false;
-//            }
-//            return true;
-//    }
-//    
-//    public boolean checkMoveSouth(Location location){
-//            if (location.getLocationRow() < 0){
-//                return false;
-//            }
-//            return true;
-//    }
-//    
-//    public boolean checkMoveWest(Location location){
-//            if (location.getLocationColumn() < 0){
-//                return false;
-//            }
-//            return true;
-//    }
-    
-    
+    }    
 }
