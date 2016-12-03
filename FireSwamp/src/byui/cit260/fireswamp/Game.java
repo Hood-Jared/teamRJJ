@@ -97,6 +97,10 @@ public class Game implements Serializable{
     public void setGameMap(Map map) {
         gameMap = map;
     }
+
+    public Items getItems() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 }

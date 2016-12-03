@@ -12,6 +12,7 @@ import byui.cit260.fireswamp.controller.MapController;
 import byui.cit260.fireswamp.exceptions.*;
 import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Game;
+import byui.cit260.fireswamp.Items;
 import byui.cit260.fireswamp.controller.GameControl;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
