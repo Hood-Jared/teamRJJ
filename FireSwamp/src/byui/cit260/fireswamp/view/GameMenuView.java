@@ -187,11 +187,13 @@ public class GameMenuView extends View {
     public void printMapToFile(){
         boolean valid = false;
         do {
+                    PrintWriter MapLog = null;            
             try {
                     console.println("\n\nEnter the file path where you would like to save this map report\n");
                     String selection = keyboard.readLine();
+                    
+                    MapLog = new PrintWriter(selection);
 
-                    PrintWriter MapLog = new PrintWriter(selection);
                     Map map = FireSwamp.getCurrentGame().getGameMap();
 
                 MapLog.printf("%15s%1s", "Your Map", "\n\n");
@@ -208,9 +210,8 @@ public class GameMenuView extends View {
                     }
                 MapLog.println(this.dangersDescription());
 
-                //flush buffer and close file
+                // flush buffer
                 MapLog.flush();
-                MapLog.close();
 
                 // tell the user the file was saved successfully
                 console.println("\nFile saved successfully as: " + selection);
@@ -218,7 +219,9 @@ public class GameMenuView extends View {
                 Thread.sleep(3000);
             } catch (Exception e) {
                 ErrorView.display("printToFile/GAMEMENUVIEW", e.getMessage());
-            } 
+            } finally {
+                MapLog.close();
+            }
         } while (!valid);
     }
     
