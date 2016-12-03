@@ -12,7 +12,6 @@ import byui.cit260.fireswamp.controller.MapController;
 import byui.cit260.fireswamp.exceptions.*;
 import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Game;
-import byui.cit260.fireswamp.Items;
 import byui.cit260.fireswamp.controller.GameControl;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -104,7 +103,7 @@ public class GameMenuView extends View {
                     case 'Y':
                         this.printItemsToFile();
                         this.displayItems();
-                        break; 
+                break;
                     case 'N':
                         this.displayItems();
                         break;
@@ -198,11 +197,13 @@ public class GameMenuView extends View {
     public void printMapToFile(){
         boolean valid = false;
         do {
+                    PrintWriter MapLog = null;            
             try {
                     console.println("\n\nEnter the file path where you would like to save this map report\n");
                     String selection = keyboard.readLine();
+                    
+                    MapLog = new PrintWriter(selection);
 
-                    PrintWriter MapLog = new PrintWriter(selection);
                     Map map = FireSwamp.getCurrentGame().getGameMap();
 
                 MapLog.printf("%15s%1s", "Your Map", "\n\n");
@@ -219,9 +220,8 @@ public class GameMenuView extends View {
                     }
                 MapLog.println(this.dangersDescription());
 
-                //flush buffer and close file
+                // flush buffer
                 MapLog.flush();
-                MapLog.close();
 
                 // tell the user the file was saved successfully
                 console.println("\nFile saved successfully as: " + selection);
@@ -229,7 +229,9 @@ public class GameMenuView extends View {
                 Thread.sleep(3000);
             } catch (Exception e) {
                 ErrorView.display("printToFile/GAMEMENUVIEW", e.getMessage());
-            } 
+            } finally {
+                MapLog.close();
+            }
         } while (!valid);
     }
     
@@ -285,7 +287,7 @@ public class GameMenuView extends View {
                 
             } catch (Exception e) {
                 ErrorView.display("printToFile/GAMEMENUVIEW", e.getMessage());
-            } 
+}
         } while (!valid);
     }
 
@@ -293,6 +295,3 @@ public class GameMenuView extends View {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 }
-
-
-
