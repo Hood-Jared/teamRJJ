@@ -12,6 +12,7 @@ import byui.cit260.fireswamp.controller.MapController;
 import byui.cit260.fireswamp.exceptions.*;
 import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Game;
+import byui.cit260.fireswamp.Items;
 import byui.cit260.fireswamp.controller.GameControl;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -98,6 +99,16 @@ public class GameMenuView extends View {
                 break;
             case 'I':
                 //Insert reference to Check Inventory Method()
+                console.println("Would you like to save your inventory to a txt file?");
+                switch (getInput().charAt(0)){
+                    case 'Y':
+                        this.printItemsToFile();
+                        this.displayItems();
+                        break; 
+                    case 'N':
+                        this.displayItems();
+                        break;
+                }
                 break;
             case 'E':
                 //Insert reference to Take Item Method()
@@ -250,6 +261,38 @@ public class GameMenuView extends View {
                 + "\nharmless as water. Be careful you don't jump right into"
                 + "\nspurt of flame!";
     }
+
+    private void printItemsToFile() {
+     boolean valid = false;
+            do {
+                try {
+                
+                    console.println("\n Enter the name you would like the file to be named\n");
+                    String selection = keyboard.readLine();
+                
+                    PrintWriter ItemsLog = new PrintWriter(selection);
+                    Items items = FireSwamp.getCurrentGame().getItems();
+                
+                ItemsLog.printf("%2s", "Your Items are listed", "\n\n");
+                ItemsLog.printf(" ");                              
+                
+                ItemsLog.flush();
+                ItemsLog.close();
+                            
+                    console.println("\nFile saved successfully as: " + selection);
+                    valid = true;
+                    Thread.sleep(3000);
+                
+            } catch (Exception e) {
+                ErrorView.display("printToFile/GAMEMENUVIEW", e.getMessage());
+            } 
+        } while (!valid);
+    }
+
+    private void displayItems() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 }
+
 
 
