@@ -27,6 +27,7 @@ import java.util.logging.Logger;
 public class GameMenuView extends View {
     
     Map map = FireSwamp.getCurrentGame().getGameMap();
+    Location[][] dangerMap = FireSwamp.getCurrentGame().getMatrix();
     Location playerLocation = FireSwamp.getCurrentGame().getGameMap().getPlayerLocation();
     MapController mc = new MapController();
     
@@ -59,6 +60,7 @@ public class GameMenuView extends View {
             case 'W':
                 if(this.isValidMove(playerLocation.getLocationRow() - 1, playerLocation.getLocationColumn()) == true) {
                     this.movePlayer(-1, 0);
+                    this.returnDanger();
                 }
                 break;
             case 'S':
@@ -144,17 +146,11 @@ public class GameMenuView extends View {
     
     //Moves the player according to the direction they choose
     private void movePlayer(int row, int col) {
-        Map map = FireSwamp.getCurrentGame().getGameMap();
-        Location[][] location = map.getMatrix();
-        //Location[][] dangerLocations = map.getMatrix();
+        Location[][] location = dangerMap;
         
-        //Assign moved location a variable
+        //Move the player
         row = playerLocation.getLocationRow() + row;
         col = playerLocation.getLocationColumn() + col;
-        
-        //Save & set the previous danger
-        //int currLocal = dangerLocations[row+1][col].getLocationRow();
-        //LocationType currDanger = dangerLocations[playerLocation.getLocationRow()][playerLocation.getLocationColumn()].getLocationType();
         
         //Display the location you moved to
         playerLocation.setLocationRow(row);
@@ -164,6 +160,20 @@ public class GameMenuView extends View {
         //location[currLocal][col].setLocationType(currDanger);
         this.displayMap();
         console.println("You are now at " + row + "," + col);
+    }
+    
+    private void returnDanger(){
+        
+        
+        for(int row = 0; row < Map.ROWS; row++) {
+            for(int col = 0; col < Map.COLUMNS; col++) {
+                char locationType = dangerMap.getLocationAt(row, col).getLocationType().toString().charAt(0);
+                if(locationType == 'L') {
+                    LightningSandView lsv = new LightningSandView();
+                    lsv.display();
+                }
+            }
+        }
     }
     
     private void displayMap() {
