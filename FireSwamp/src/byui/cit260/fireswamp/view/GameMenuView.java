@@ -13,6 +13,7 @@ import byui.cit260.fireswamp.exceptions.*;
 import byui.cit260.fireswamp.Location;
 import byui.cit260.fireswamp.Game;
 import byui.cit260.fireswamp.Items;
+import byui.cit260.fireswamp.controller.DangerController;
 import byui.cit260.fireswamp.controller.GameControl;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -165,13 +166,39 @@ public class GameMenuView extends View {
     private void movePlayer(int row, int col) {
         Location[][] map = this.map.getMatrix();
         
+        //Save the danger
+        int dangerRow = playerLocation.getLocationRow() + row;
+        int dangerCol = playerLocation.getLocationColumn() + col;
+        LocationType danger = map[dangerRow][dangerCol].getLocationType();
+        
+        DangerController dc = new DangerController();
+        if(danger == LocationType.LIGHTNINGSAND){
+                LightningSandView lsv = new LightningSandView();
+                lsv.display();
+        }
+        else if(danger == LocationType.ROUS){
+                RousView rs = new RousView();
+                rs.display();
+        }
+        else if(danger == LocationType.FLAMESPURT){
+                FireSpoutsView fsv = new FireSpoutsView();
+                fsv.display();
+        }
+        else if(danger == LocationType.END){
+            console.println("\nYou win!!");
+            MainMenuView mmv = new MainMenuView();
+            mmv.display();
+        }
+        
         //Move the player
         row = playerLocation.getLocationRow() + row;
         col = playerLocation.getLocationColumn() + col;
-        
-        //Display the location you moved to
         playerLocation.setLocationRow(row);
         playerLocation.setLocationColumn(col);
+        
+//        int row2 = this.map.getMapEntrance().getLocationRow();
+//        int col2 = this.map.getMapEntrance().getLocationColumn();
+//        map[row2][col2].setLocationType(danger);
         
         map[row][col].setLocationType(LocationType.PLAYERLOCATION);
         //location[currLocal][col].setLocationType(currDanger);

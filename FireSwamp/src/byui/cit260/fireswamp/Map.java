@@ -70,7 +70,7 @@ public class Map implements Serializable{
         
         //Set the dangers for the matrix and danger map copies
         matrix[row][col] = location; 
-        dangerMap[row][col] = matrix[row][col];
+        //dangerMap[row][col] = matrix[row][col];
     }
     
     private void randIndex(Location location, int row, int col, int index){
@@ -85,7 +85,7 @@ public class Map implements Serializable{
         
         //Set the dangers for the matrix and danger map copies
         matrix[row][col] = location; 
-        dangerMap[row][col] = matrix[row][col];
+        //dangerMap[row][col] = matrix[row][col];
     }
 
     public void setPlayerLocation(Location playerLocation) {

@@ -25,11 +25,11 @@ public class DangerController {
 }
     
     //Calculate the area of a triangle A=h*b/2
-    public double calcFireSpouts(int height, int base) throws DangerControllerException {
+    public double calcFireSpouts(double height, double base) throws DangerControllerException {
+        double triangleArea = height * base / 2;
         if (height <= 0 || base <= 0) {
             throw new DangerControllerException("You cannot have a negative height or base. Try again!");
         }
-        double triangleArea = height * base / 2;
         return triangleArea;
     }
     

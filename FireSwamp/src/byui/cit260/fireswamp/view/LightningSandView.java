@@ -44,9 +44,12 @@ public class LightningSandView extends View {
             console.println("You made it across");
             } else {
                 System.err.println("You fell in");
+                MainMenuView mmv = new MainMenuView();
+                mmv.display();
             }
-        } catch (DangerControllerException dce) {
-            ErrorView.display("display/LightningSandView", dce.getMessage());
+        } catch (Exception e) {
+            console.println("You entered an invalid input, try again...");
+            this.display();
         }
                  
         //present user with results

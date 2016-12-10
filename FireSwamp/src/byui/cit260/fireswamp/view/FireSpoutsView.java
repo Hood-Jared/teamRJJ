@@ -16,15 +16,15 @@ import java.util.Random;
  * @author blvd
  */
 public class FireSpoutsView extends View {
-    
+
     //Randomly generate value or grab it from player's current location
     Random r = new Random();
     private int height = r.nextInt(5) + 5;
     private int base = r.nextInt(5) + 5;
-    
+
     @Override
     public void display() {
-        
+
         //Display problem to user
         console.println("\nYou've encountered a fire spout!"
                 + "\n"
@@ -38,38 +38,37 @@ public class FireSpoutsView extends View {
                 + "\ndie!"
                 + "\n"
                 + "\nThe formula to use is area = height * base / 2");
-               
-        
+
         //collect input
         String input = getInput();
-        
-        
+
         try {
             //validate input
             boolean isCorrect = doAction(input);
-        
+
             //present user with results
-            if(isCorrect) {
-                console.println("You made it over the Fire Spout!");                
+            if (isCorrect) {
+                console.println("You made it over the Fire Spout!");
+            } else {
+                throw new DangerControllerException("You didn't jump high enough! "
+                        + "The Fire Spout caught you in midair and you burned!");
             }
-            else throw new DangerControllerException("You didn't jump high enough! "
-                    + "The Fire Spout caught you in midair and you burned!");
         } catch (DangerControllerException dce) {
             console.println(dce.getMessage());
         }
-                      
+
     }
-      
+
     @Override
     public boolean doAction(String value) throws DangerControllerException {
-        
-        double input = Integer.parseInt(value);
-        
+
+        double input = Double.parseDouble(value);
+
         DangerController dc = new DangerController();
-        
+
         double actualAnswer = dc.calcFireSpouts(height, base);
-                   
+
         return actualAnswer == input;
-          
+
     }
 }

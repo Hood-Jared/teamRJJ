@@ -12,28 +12,3 @@ package byui.cit260.fireswamp;
 public enum LocationType {
     NONE, FLAMESPURT, ROUS, LIGHTNINGSAND, END, START, PLAYERLOCATION
 }
-
-
-
-
-
-/*
-public enum RecommendedAmount {
-    grain(0.8334),
-    legumes(0.1644),
-    honey(0.1644),
-    salt(0.01369),
-    oil(0.03562),
-    water(12.85592);
-    
-    private final double amount;
-
-    private testing(double amount) {
-        this.amount = amount;
-    }
-    
-    public double getAmount() {
-        return this.amount;
-    }
-}
-*/
