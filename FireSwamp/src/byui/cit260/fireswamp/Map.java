@@ -136,9 +136,7 @@ public class Map implements Serializable{
     public void setDangerMap(Location[][] dangerMap) {
         this.dangerMap = dangerMap;
     }
-    
-    
-    
+        
     
     // hashCode(), toString(), equals() functions
     @Override          

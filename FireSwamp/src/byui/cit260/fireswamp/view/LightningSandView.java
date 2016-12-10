@@ -30,7 +30,11 @@ public class LightningSandView extends View {
         console.println("You've encountered lightning sand."
                 + "\nYou are standing at the edge."
                 + "... the diameter is " + diameter +" ft."
-                + "How far must you walk to walk along the edge to the other side");
+                + "How far must you walk to walk along the edge to the other side"
+                + "\nCalculate the circumference of the Lightning Sand"
+                + "\n If you miscalculate it you will die!"
+                + "\n"
+                + "\nThe formula to use is circumference = diameter * PI(3.14) / 2;");
                
         
         //collect input
