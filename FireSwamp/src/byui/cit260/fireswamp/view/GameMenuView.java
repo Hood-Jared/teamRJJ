@@ -61,7 +61,6 @@ public class GameMenuView extends View {
             case 'W':
                 if(this.isValidMove(playerLocation.getLocationRow() - 1, playerLocation.getLocationColumn()) == true) {
                     this.movePlayer(-1, 0);
-//                    this.returnDanger();
                 }
                 break;
             case 'S':
@@ -80,16 +79,16 @@ public class GameMenuView extends View {
                 }
                 break;
             case 'V':
-//                console.println("Would you like to save your map to a txt file?");
-//                switch (getInput().charAt(0)) {
-//                    case 'Y':
-//                        this.printMapToFile();
-//                        this.displayMap();
-//                        break;
-//                    case 'N':
-//                        this.displayMap();
-//                        break;
-//                    }
+                console.println("Would you like to save your map to a txt file?");
+                switch (getInput().charAt(0)) {
+                    case 'Y':
+                        this.printMapToFile();
+                        this.displayMap();
+                        break;
+                    case 'N':
+                        this.displayMap();
+                        break;
+                    }
                 this.displayMap();
                 break;
             case 'L':
