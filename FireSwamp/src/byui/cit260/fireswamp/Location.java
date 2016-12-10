@@ -19,6 +19,7 @@ public class Location implements Serializable {
     private boolean locationVisited;
     private String locationDescription;
     private LocationType locationType;
+    private LocationType dangerType;
     Random r = new Random();
 
     public int getLocationRow() {

@@ -20,6 +20,7 @@ public class Map implements Serializable{
     public static final int COLUMNS = 5;
     private Location playerLocation = new Location();
     private Location[][] matrix = new Location[ROWS][COLUMNS];
+    private Location[][] dangerMap = new Location[ROWS][COLUMNS];
     private Location mapEntrance = new Location();
     private Location mapExit = new Location();
     
@@ -54,6 +55,7 @@ public class Map implements Serializable{
                 }
             }
         }  
+        //dangerMap = matrix;
     }
     
     private void specificIndex(Location location, int row, int col, int index){
@@ -66,7 +68,9 @@ public class Map implements Serializable{
         
         location.setLocationType(LocationType.values()[specificIndex]);
         
+        //Set the dangers for the matrix and danger map copies
         matrix[row][col] = location; 
+        dangerMap[row][col] = matrix[row][col];
     }
     
     private void randIndex(Location location, int row, int col, int index){
@@ -79,7 +83,9 @@ public class Map implements Serializable{
         
         location.setLocationType(LocationType.values()[randLocation]);
         
+        //Set the dangers for the matrix and danger map copies
         matrix[row][col] = location; 
+        dangerMap[row][col] = matrix[row][col];
     }
 
     public void setPlayerLocation(Location playerLocation) {
@@ -111,6 +117,10 @@ public class Map implements Serializable{
         return matrix[row][col];    
     }
     
+    public Location getLocationFromDangerMapAt(int row, int col){
+        return dangerMap[row][col];
+    }
+    
     public Location[][] getMatrix() {
         return matrix;
     }
@@ -118,6 +128,15 @@ public class Map implements Serializable{
     public void setMatrix(Location[][] matrix) {
         this.matrix = matrix;
     }
+
+    public Location[][] getDangerMap() {
+        return dangerMap;
+    }
+
+    public void setDangerMap(Location[][] dangerMap) {
+        this.dangerMap = dangerMap;
+    }
+    
     
     
     

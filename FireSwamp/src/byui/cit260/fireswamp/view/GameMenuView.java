@@ -27,7 +27,7 @@ import java.util.logging.Logger;
 public class GameMenuView extends View {
     
     Map map = FireSwamp.getCurrentGame().getGameMap();
-    Location[][] dangerMap = FireSwamp.getCurrentGame().getMatrix();
+    //Location[][] dangerMap = FireSwamp.getCurrentGame().getGameMap().getDangerMap();
     Location playerLocation = FireSwamp.getCurrentGame().getGameMap().getPlayerLocation();
     MapController mc = new MapController();
     
@@ -60,7 +60,7 @@ public class GameMenuView extends View {
             case 'W':
                 if(this.isValidMove(playerLocation.getLocationRow() - 1, playerLocation.getLocationColumn()) == true) {
                     this.movePlayer(-1, 0);
-                    this.returnDanger();
+//                    this.returnDanger();
                 }
                 break;
             case 'S':
@@ -79,16 +79,17 @@ public class GameMenuView extends View {
                 }
                 break;
             case 'V':
-                console.println("Would you like to save your map to a txt file?");
-                switch (getInput().charAt(0)) {
-                    case 'Y':
-                        this.printMapToFile();
-                        this.displayMap();
-                        break;
-                    case 'N':
-                        this.displayMap();
-                        break;
-                    }
+//                console.println("Would you like to save your map to a txt file?");
+//                switch (getInput().charAt(0)) {
+//                    case 'Y':
+//                        this.printMapToFile();
+//                        this.displayMap();
+//                        break;
+//                    case 'N':
+//                        this.displayMap();
+//                        break;
+//                    }
+                this.displayMap();
                 break;
             case 'L':
                 //Insert reference to Look Method()
@@ -127,6 +128,9 @@ public class GameMenuView extends View {
             default:
                 console.println("Invalid Input - Please try again.");
                 break;
+            case 'P':
+                printDangerMap();
+                break;
         }
         return false;
     }
@@ -144,9 +148,22 @@ public class GameMenuView extends View {
         return true;
             }
     
+    private void printDangerMap(){
+            
+                for(int row = 0; row < Map.ROWS; row++) {
+                    for(int col = 0; col < Map.COLUMNS; col++) {
+                        char locationType = map.getLocationFromDangerMapAt(row, col).getLocationType().toString().charAt(0);
+                        console.print(locationType + "\t");
+                    }
+                    console.println("");
+                    console.println("");
+                    console.println("");
+                }  
+    }
+    
     //Moves the player according to the direction they choose
     private void movePlayer(int row, int col) {
-        Location[][] location = dangerMap;
+        Location[][] map = this.map.getMatrix();
         
         //Move the player
         row = playerLocation.getLocationRow() + row;
@@ -156,24 +173,10 @@ public class GameMenuView extends View {
         playerLocation.setLocationRow(row);
         playerLocation.setLocationColumn(col);
         
-        location[row][col].setLocationType(LocationType.PLAYERLOCATION);
+        map[row][col].setLocationType(LocationType.PLAYERLOCATION);
         //location[currLocal][col].setLocationType(currDanger);
         this.displayMap();
         console.println("You are now at " + row + "," + col);
-    }
-    
-    private void returnDanger(){
-        
-        
-        for(int row = 0; row < Map.ROWS; row++) {
-            for(int col = 0; col < Map.COLUMNS; col++) {
-                char locationType = dangerMap.getLocationAt(row, col).getLocationType().toString().charAt(0);
-                if(locationType == 'L') {
-                    LightningSandView lsv = new LightningSandView();
-                    lsv.display();
-                }
-            }
-        }
     }
     
     private void displayMap() {
