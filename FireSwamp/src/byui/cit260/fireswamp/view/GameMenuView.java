@@ -31,6 +31,7 @@ public class GameMenuView extends View {
     //Location[][] dangerMap = FireSwamp.getCurrentGame().getGameMap().getDangerMap();
     Location playerLocation = FireSwamp.getCurrentGame().getGameMap().getPlayerLocation();
     MapController mc = new MapController();
+    private LocationType oldDangerType;
     
     public GameMenuView() {
         super("\nGame Menu"
@@ -171,36 +172,39 @@ public class GameMenuView extends View {
         LocationType danger = map[dangerRow][dangerCol].getLocationType();
         
         DangerController dc = new DangerController();
-        if(danger == LocationType.LIGHTNINGSAND){
-                LightningSandView lsv = new LightningSandView();
-                lsv.display();
-        }
-        else if(danger == LocationType.ROUS){
-                RousView rs = new RousView();
-                rs.display();
-        }
-        else if(danger == LocationType.FLAMESPURT){
-                FireSpoutsView fsv = new FireSpoutsView();
-                fsv.display();
-        }
-        else if(danger == LocationType.END){
-            console.println("\nYou win!!");
-            MainMenuView mmv = new MainMenuView();
-            mmv.display();
-        }
+//        if(danger == LocationType.LIGHTNINGSAND){
+//                LightningSandView lsv = new LightningSandView();
+//                lsv.display();
+//        }
+//        else if(danger == LocationType.ROUS){
+//                RousView rs = new RousView();
+//                rs.display();
+//        }
+//        else if(danger == LocationType.FLAMESPURT){
+//                FireSpoutsView fsv = new FireSpoutsView();
+//                fsv.display();
+//        }
+//        else if(danger == LocationType.END){
+//            console.println("\nYou win!!");
+//            MainMenuView mmv = new MainMenuView();
+//            mmv.display();
+//        }
         
         //Move the player
+        if(oldDangerType != null) {
+            playerLocation.setLocationType(oldDangerType);
+        }
         row = playerLocation.getLocationRow() + row;
         col = playerLocation.getLocationColumn() + col;
-        playerLocation.setLocationRow(row);
-        playerLocation.setLocationColumn(col);
+        playerLocation = this.map.getLocationAt(row, col);
+//        playerLocation.setLocationRow(row);
+//        playerLocation.setLocationColumn(col);
         
 //        int row2 = this.map.getMapEntrance().getLocationRow();
 //        int col2 = this.map.getMapEntrance().getLocationColumn();
 //        map[row2][col2].setLocationType(danger);
-        
+        oldDangerType = map[row][col].getLocationType();
         map[row][col].setLocationType(LocationType.PLAYERLOCATION);
-        //location[currLocal][col].setLocationType(currDanger);
         this.displayMap();
         console.println("You are now at " + row + "," + col);
     }
